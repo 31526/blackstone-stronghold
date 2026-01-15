@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "error": {
+    "code": -1128,
+    "msg": "Combination of optional parameters invalid. Recommendation: send one of 'preventedMatchId', 'orderId'."
+  }
+}

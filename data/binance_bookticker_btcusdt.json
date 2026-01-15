@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "data": {
+    "symbol": "BTCUSDT",
+    "bidPrice": "95274.13000000",
+    "bidQty": "0.22528000",
+    "askPrice": "95274.14000000",
+    "askQty": "3.92134000"
+  }
+}

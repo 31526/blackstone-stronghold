@@ -1,0 +1,1192 @@
+{
+  "info": {
+    "_postman_id": "etherscan-api-collection",
+    "name": "Etherscan API",
+    "description": "Etherscan API 完整接口集合\n\nBase URL: https://api.etherscan.io/api\n\n使用前请在 Variables 中设置你的 API Key",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.etherscan.io/api",
+      "type": "string"
+    },
+    {
+      "key": "apikey",
+      "value": "YourApiKeyToken",
+      "type": "string"
+    },
+    {
+      "key": "address",
+      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
+      "type": "string"
+    },
+    {
+      "key": "contractaddress",
+      "value": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "type": "string"
+    },
+    {
+      "key": "txhash",
+      "value": "0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Account (账户)",
+      "description": "账户相关接口",
+      "item": [
+        {
+          "name": "1.1 获取单个地址的 ETH 余额",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=balance&address={{address}}&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "balance"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取指定地址的原生代币 (ETH) 余额"
+          }
+        },
+        {
+          "name": "1.2 获取多个地址的 ETH 余额",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=balancemulti&address={{address}},0xBE0eB53F46cd790Cd13851d5EFf43D12404d33E8&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "balancemulti"},
+                {"key": "address", "value": "{{address}},0xBE0eB53F46cd790Cd13851d5EFf43D12404d33E8"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "批量查询多个地址的余额（最多 20 个地址）"
+          }
+        },
+        {
+          "name": "1.3 获取普通交易列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=txlist&address={{address}}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "txlist"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "startblock", "value": "0"},
+                {"key": "endblock", "value": "99999999"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "10"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址的普通交易记录"
+          }
+        },
+        {
+          "name": "1.4 获取内部交易列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=txlistinternal&address={{address}}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "txlistinternal"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "startblock", "value": "0"},
+                {"key": "endblock", "value": "99999999"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "10"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址的内部交易（合约调用）记录"
+          }
+        },
+        {
+          "name": "1.5 根据交易哈希获取内部交易",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=txlistinternal&txhash={{txhash}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "txlistinternal"},
+                {"key": "txhash", "value": "{{txhash}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据交易哈希获取内部交易"
+          }
+        },
+        {
+          "name": "1.6 获取 ERC20 代币转账记录",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=tokentx&address={{address}}&contractaddress={{contractaddress}}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "tokentx"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "contractaddress", "value": "{{contractaddress}}"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "100"},
+                {"key": "startblock", "value": "0"},
+                {"key": "endblock", "value": "99999999"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ERC20 代币转账记录"
+          }
+        },
+        {
+          "name": "1.7 获取 ERC721 (NFT) 转账记录",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=tokennfttx&address={{address}}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "tokennfttx"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "100"},
+                {"key": "startblock", "value": "0"},
+                {"key": "endblock", "value": "99999999"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ERC721 (NFT) 转账记录"
+          }
+        },
+        {
+          "name": "1.8 获取 ERC1155 代币转账记录",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=token1155tx&address={{address}}&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "token1155tx"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "100"},
+                {"key": "startblock", "value": "0"},
+                {"key": "endblock", "value": "99999999"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ERC1155 代币转账记录"
+          }
+        },
+        {
+          "name": "1.9 获取已挖区块列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=getminedblocks&address={{address}}&blocktype=blocks&page=1&offset=10&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "getminedblocks"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "blocktype", "value": "blocks"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "10"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址作为矿工挖出的区块列表"
+          }
+        },
+        {
+          "name": "1.10 获取历史 ETH 余额 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=balancehistory&address={{address}}&blockno=8000000&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "balancehistory"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "blockno", "value": "8000000"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取指定区块高度时的 ETH 余额（仅限 Pro API）"
+          }
+        },
+        {
+          "name": "1.11 获取 ERC20 代币余额",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=tokenbalance&contractaddress={{contractaddress}}&address={{address}}&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "tokenbalance"},
+                {"key": "contractaddress", "value": "{{contractaddress}}"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址的 ERC20 代币余额"
+          }
+        },
+        {
+          "name": "1.12 获取地址持有的代币列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=addresstokenbalance&address={{address}}&page=1&offset=100&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "addresstokenbalance"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "100"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址持有的所有代币列表"
+          }
+        },
+        {
+          "name": "1.13 获取地址持有的 NFT 列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=account&action=addresstokennftbalance&address={{address}}&page=1&offset=100&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "account"},
+                {"key": "action", "value": "addresstokennftbalance"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "100"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址持有的所有 NFT 列表"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Contract (合约)",
+      "description": "智能合约相关接口",
+      "item": [
+        {
+          "name": "2.1 获取已验证合约的 ABI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=contract&action=getabi&address={{contractaddress}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "contract"},
+                {"key": "action", "value": "getabi"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取已验证合约的 ABI"
+          }
+        },
+        {
+          "name": "2.2 获取已验证合约的源代码",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=contract&action=getsourcecode&address={{contractaddress}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "contract"},
+                {"key": "action", "value": "getsourcecode"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取已验证合约的源代码、编译器版本等信息"
+          }
+        },
+        {
+          "name": "2.3 获取合约创建者和创建交易",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=contract&action=getcontractcreation&contractaddresses={{contractaddress}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "contract"},
+                {"key": "action", "value": "getcontractcreation"},
+                {"key": "contractaddresses", "value": "{{contractaddress}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取合约创建者地址和创建交易哈希"
+          }
+        },
+        {
+          "name": "2.4 检查源代码验证状态",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=contract&action=checkverifystatus&guid=your-guid-here&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "contract"},
+                {"key": "action", "value": "checkverifystatus"},
+                {"key": "guid", "value": "your-guid-here"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "检查合约源代码验证状态"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Transaction (交易)",
+      "description": "交易执行状态相关接口",
+      "item": [
+        {
+          "name": "3.1 检查合约执行状态",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=transaction&action=getstatus&txhash={{txhash}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "transaction"},
+                {"key": "action", "value": "getstatus"},
+                {"key": "txhash", "value": "{{txhash}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "检查交易执行是否成功（合约交易）"
+          }
+        },
+        {
+          "name": "3.2 检查交易收据状态",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=transaction&action=gettxreceiptstatus&txhash={{txhash}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "transaction"},
+                {"key": "action", "value": "gettxreceiptstatus"},
+                {"key": "txhash", "value": "{{txhash}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "检查交易是否被成功提交"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Block (区块)",
+      "description": "区块相关接口",
+      "item": [
+        {
+          "name": "4.1 获取区块奖励",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=block&action=getblockreward&blockno=2165403&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "block"},
+                {"key": "action", "value": "getblockreward"},
+                {"key": "blockno", "value": "2165403"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取矿工的区块奖励和叔块奖励"
+          }
+        },
+        {
+          "name": "4.2 获取区块倒计时",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=block&action=getblockcountdown&blockno=20000000&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "block"},
+                {"key": "action", "value": "getblockcountdown"},
+                {"key": "blockno", "value": "20000000"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "估算到达指定区块号的剩余时间"
+          }
+        },
+        {
+          "name": "4.3 根据时间戳获取区块号",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=block&action=getblocknobytime&timestamp=1578638524&closest=before&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "block"},
+                {"key": "action", "value": "getblocknobytime"},
+                {"key": "timestamp", "value": "1578638524"},
+                {"key": "closest", "value": "before"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据 Unix 时间戳获取最接近的区块号"
+          }
+        },
+        {
+          "name": "4.4 获取每日平均区块大小 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=block&action=dailyavgblocksize&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "block"},
+                {"key": "action", "value": "dailyavgblocksize"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日平均区块大小"
+          }
+        },
+        {
+          "name": "4.5 获取每日区块数量和奖励 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=block&action=dailyblkcount&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "block"},
+                {"key": "action", "value": "dailyblkcount"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日区块数量和奖励"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Logs (日志)",
+      "description": "事件日志查询接口",
+      "item": [
+        {
+          "name": "5.1 获取事件日志（按地址）",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=logs&action=getLogs&address={{contractaddress}}&fromBlock=0&toBlock=latest&page=1&offset=1000&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "logs"},
+                {"key": "action", "value": "getLogs"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "fromBlock", "value": "0"},
+                {"key": "toBlock", "value": "latest"},
+                {"key": "page", "value": "1"},
+                {"key": "offset", "value": "1000"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据地址获取事件日志"
+          }
+        },
+        {
+          "name": "5.2 获取事件日志（按主题过滤）",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=logs&action=getLogs&address={{contractaddress}}&fromBlock=0&toBlock=latest&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "logs"},
+                {"key": "action", "value": "getLogs"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "fromBlock", "value": "0"},
+                {"key": "toBlock", "value": "latest"},
+                {"key": "topic0", "value": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据主题过滤获取事件日志 (topic0 是 Transfer 事件签名)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Geth/Parity Proxy (代理)",
+      "description": "以太坊 JSON-RPC API 代理接口",
+      "item": [
+        {
+          "name": "6.1 eth_blockNumber",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_blockNumber&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_blockNumber"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取最新区块号"
+          }
+        },
+        {
+          "name": "6.2 eth_getBlockByNumber",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getBlockByNumber&tag=0x10d4f&boolean=true&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getBlockByNumber"},
+                {"key": "tag", "value": "0x10d4f"},
+                {"key": "boolean", "value": "true"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据区块号获取区块信息"
+          }
+        },
+        {
+          "name": "6.3 eth_getUncleByBlockNumberAndIndex",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getUncleByBlockNumberAndIndex&tag=0x210A9B&index=0x0&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getUncleByBlockNumberAndIndex"},
+                {"key": "tag", "value": "0x210A9B"},
+                {"key": "index", "value": "0x0"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取叔块信息"
+          }
+        },
+        {
+          "name": "6.4 eth_getBlockTransactionCountByNumber",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getBlockTransactionCountByNumber&tag=0x10FB78&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getBlockTransactionCountByNumber"},
+                {"key": "tag", "value": "0x10FB78"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取区块中的交易数量"
+          }
+        },
+        {
+          "name": "6.5 eth_getTransactionByHash",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getTransactionByHash&txhash={{txhash}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getTransactionByHash"},
+                {"key": "txhash", "value": "{{txhash}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据交易哈希获取交易详情"
+          }
+        },
+        {
+          "name": "6.6 eth_getTransactionByBlockNumberAndIndex",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getTransactionByBlockNumberAndIndex&tag=0x10d4f&index=0x0&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getTransactionByBlockNumberAndIndex"},
+                {"key": "tag", "value": "0x10d4f"},
+                {"key": "index", "value": "0x0"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据区块号和索引获取交易"
+          }
+        },
+        {
+          "name": "6.7 eth_getTransactionCount",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getTransactionCount&address={{address}}&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getTransactionCount"},
+                {"key": "address", "value": "{{address}}"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取地址发送的交易数量（nonce）"
+          }
+        },
+        {
+          "name": "6.8 eth_getTransactionReceipt",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getTransactionReceipt&txhash={{txhash}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getTransactionReceipt"},
+                {"key": "txhash", "value": "{{txhash}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取交易收据"
+          }
+        },
+        {
+          "name": "6.9 eth_call",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_call&to={{contractaddress}}&data=0x70a08231000000000000000000000000{{address}}&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_call"},
+                {"key": "to", "value": "{{contractaddress}}"},
+                {"key": "data", "value": "0x70a08231000000000000000000000000{{address}}"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "执行只读智能合约调用"
+          }
+        },
+        {
+          "name": "6.10 eth_getCode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getCode&address={{contractaddress}}&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getCode"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取合约字节码"
+          }
+        },
+        {
+          "name": "6.11 eth_getStorageAt",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_getStorageAt&address={{contractaddress}}&position=0x0&tag=latest&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_getStorageAt"},
+                {"key": "address", "value": "{{contractaddress}}"},
+                {"key": "position", "value": "0x0"},
+                {"key": "tag", "value": "latest"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取合约存储槽的值"
+          }
+        },
+        {
+          "name": "6.12 eth_gasPrice",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_gasPrice&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_gasPrice"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取当前 gas 价格"
+          }
+        },
+        {
+          "name": "6.13 eth_estimateGas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=proxy&action=eth_estimateGas&data=0x&to={{address}}&value=0xff22&gasPrice=0x51da038cc&gas=0x5f5e0ff&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "proxy"},
+                {"key": "action", "value": "eth_estimateGas"},
+                {"key": "data", "value": "0x"},
+                {"key": "to", "value": "{{address}}"},
+                {"key": "value", "value": "0xff22"},
+                {"key": "gasPrice", "value": "0x51da038cc"},
+                {"key": "gas", "value": "0x5f5e0ff"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "估算交易所需 gas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Token (代币)",
+      "description": "ERC20 代币相关接口",
+      "item": [
+        {
+          "name": "7.1 获取 ERC20 代币总供应量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=tokensupply&contractaddress={{contractaddress}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "tokensupply"},
+                {"key": "contractaddress", "value": "{{contractaddress}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ERC20 代币总供应量"
+          }
+        },
+        {
+          "name": "7.2 获取代币历史总供应量 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=tokensupplyhistory&contractaddress={{contractaddress}}&blockno=8000000&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "tokensupplyhistory"},
+                {"key": "contractaddress", "value": "{{contractaddress}}"},
+                {"key": "blockno", "value": "8000000"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取代币在指定区块的历史总供应量"
+          }
+        },
+        {
+          "name": "7.3 获取代币信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=token&action=tokeninfo&contractaddress={{contractaddress}}&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "token"},
+                {"key": "action", "value": "tokeninfo"},
+                {"key": "contractaddress", "value": "{{contractaddress}}"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取代币详细信息"
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Gas Tracker (Gas 追踪)",
+      "description": "Gas 价格估算接口",
+      "item": [
+        {
+          "name": "8.1 获取预估 Gas 价格",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=gastracker&action=gasoracle&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "gastracker"},
+                {"key": "action", "value": "gasoracle"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取当前 Safe/Propose/Fast Gas 价格预估"
+          }
+        },
+        {
+          "name": "8.2 获取预估确认时间",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=gastracker&action=gasestimate&gasprice=2000000000&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "gastracker"},
+                {"key": "action", "value": "gasestimate"},
+                {"key": "gasprice", "value": "2000000000"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "根据 gas 价格估算交易确认时间（秒）"
+          }
+        },
+        {
+          "name": "8.3 获取每日平均 Gas Limit (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailyavggaslimit&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailyavggaslimit"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日平均 Gas Limit"
+          }
+        },
+        {
+          "name": "8.4 获取每日总 Gas 使用量 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailygasused&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailygasused"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日总 Gas 使用量"
+          }
+        },
+        {
+          "name": "8.5 获取每日平均 Gas 价格 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailyavggasprice&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailyavggasprice"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日平均 Gas 价格"
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. Stats (统计)",
+      "description": "以太坊网络统计数据接口",
+      "item": [
+        {
+          "name": "9.1 获取 ETH 总供应量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=ethsupply&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "ethsupply"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ETH 总供应量（Wei）"
+          }
+        },
+        {
+          "name": "9.2 获取 ETH2 总供应量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=ethsupply2&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "ethsupply2"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ETH2 总供应量"
+          }
+        },
+        {
+          "name": "9.3 获取 ETH 最新价格",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=ethprice&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "ethprice"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取 ETH 最新价格（USD 和 BTC）"
+          }
+        },
+        {
+          "name": "9.4 获取以太坊节点数量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=nodecount&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "nodecount"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取当前以太坊网络节点数量"
+          }
+        },
+        {
+          "name": "9.5 获取每日网络交易费 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailytxnfee&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailytxnfee"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日网络总交易费"
+          }
+        },
+        {
+          "name": "9.6 获取每日新地址数量 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailynewaddress&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailynewaddress"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日新创建的地址数量"
+          }
+        },
+        {
+          "name": "9.7 获取每日网络利用率 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailynetutilization&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailynetutilization"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日网络利用率"
+          }
+        },
+        {
+          "name": "9.8 获取每日交易数量 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=dailytx&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "dailytx"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取每日交易数量"
+          }
+        },
+        {
+          "name": "9.9 获取历史 ETH 价格 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=ethdailyprice&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "ethdailyprice"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取历史 ETH 每日价格"
+          }
+        },
+        {
+          "name": "9.10 获取历史 ETH 市值 (Pro)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?module=stats&action=ethdailymarketcap&startdate=2019-02-01&enddate=2019-02-28&sort=asc&apikey={{apikey}}",
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {"key": "module", "value": "stats"},
+                {"key": "action", "value": "ethdailymarketcap"},
+                {"key": "startdate", "value": "2019-02-01"},
+                {"key": "enddate", "value": "2019-02-28"},
+                {"key": "sort", "value": "asc"},
+                {"key": "apikey", "value": "{{apikey}}"}
+              ]
+            },
+            "description": "获取历史 ETH 每日市值"
+          }
+        }
+      ]
+    }
+  ]
+}

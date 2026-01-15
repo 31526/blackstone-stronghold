@@ -1,0 +1,1035 @@
+{
+  "info": {
+    "_postman_id": "binance-spot-api-collection",
+    "name": "Binance Spot REST API",
+    "description": "币安现货交易REST API接口集合",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.binance.com",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "secretKey",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "General - 通用接口",
+      "item": [
+        {
+          "name": "Ping - 测试连通性",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ping",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ping"]
+            },
+            "description": "测试REST API的连通性\n\n权重: 1\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Time - 服务器时间",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/time",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "time"]
+            },
+            "description": "获取服务器时间\n\n权重: 1\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Exchange Info - 交易所信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/exchangeInfo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "exchangeInfo"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "disabled": true
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "获取交易所交易规则和交易对信息\n\n权重: 20\n鉴权: NONE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Market Data - 行情接口",
+      "item": [
+        {
+          "name": "Depth - 深度信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/depth?symbol=BTCUSDT&limit=100",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "depth"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "limit",
+                  "value": "100",
+                  "description": "默认100, 最大5000. 可选: 5, 10, 20, 50, 100, 500, 1000, 5000"
+                }
+              ]
+            },
+            "description": "获取交易对深度信息\n\n权重: 根据limit变化 (5-50: 5, 100: 10, 500: 25, 1000: 50, 5000: 250)\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Trades - 近期成交",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/trades?symbol=BTCUSDT&limit=500",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "trades"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "默认500, 最大1000"
+                }
+              ]
+            },
+            "description": "获取近期成交列表\n\n权重: 10\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Historical Trades - 历史成交",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/historicalTrades?symbol=BTCUSDT&limit=500",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "historicalTrades"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "默认500, 最大1000"
+                },
+                {
+                  "key": "fromId",
+                  "value": "",
+                  "description": "从哪个tradeId开始",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "获取历史成交记录\n\n权重: 10\n鉴权: NONE (需要API Key)"
+          }
+        },
+        {
+          "name": "Agg Trades - 聚合交易",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/aggTrades?symbol=BTCUSDT&limit=500",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "aggTrades"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "fromId",
+                  "value": "",
+                  "description": "从哪个ID开始",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "description": "起始时间戳",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间戳",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "默认500, 最大1000"
+                }
+              ]
+            },
+            "description": "获取聚合交易列表\n\n权重: 4\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Klines - K线数据",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=500",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "klines"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "interval",
+                  "value": "1h",
+                  "description": "K线间隔: 1s,1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M"
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "description": "起始时间",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间",
+                  "disabled": true
+                },
+                {
+                  "key": "timeZone",
+                  "value": "0",
+                  "description": "时区，默认0(UTC)",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "默认500, 最大1000"
+                }
+              ]
+            },
+            "description": "获取K线数据\n\n权重: 2\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "UI Klines - UI优化K线",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/uiKlines?symbol=BTCUSDT&interval=1h&limit=500",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "uiKlines"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "interval",
+                  "value": "1h",
+                  "description": "K线间隔"
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "timeZone",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500"
+                }
+              ]
+            },
+            "description": "获取优化的蜡烛图数据\n\n权重: 2\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Avg Price - 当前平均价格",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/avgPrice?symbol=BTCUSDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "avgPrice"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                }
+              ]
+            },
+            "description": "获取当前平均价格\n\n权重: 2\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "24hr Ticker - 24小时价格变动",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ticker/24hr?symbol=BTCUSDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ticker", "24hr"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "description": "多个交易对",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "FULL",
+                  "description": "FULL或MINI",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "24小时滚动窗口价格变动统计\n\n权重: 单个symbol 2, 无参数 80\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Trading Day Ticker - 交易日行情",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ticker/tradingDay?symbol=BTCUSDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ticker", "tradingDay"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "disabled": true
+                },
+                {
+                  "key": "timeZone",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "FULL",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "交易日价格变动统计\n\n权重: 4 × symbol数量(最大200)\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Price Ticker - 最新价格",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ticker/price?symbol=BTCUSDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ticker", "price"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "获取交易对最新价格\n\n权重: 单个symbol 2, 无参数 4\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Book Ticker - 最优挂单",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ticker/bookTicker?symbol=BTCUSDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ticker", "bookTicker"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "获取当前最优挂单\n\n权重: 单个symbol 2, 无参数 4\n鉴权: NONE"
+          }
+        },
+        {
+          "name": "Rolling Window Ticker - 滚动窗口价格变动",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/ticker?symbol=BTCUSDT&windowSize=1d",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "ticker"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "symbols",
+                  "value": "[\"BTCUSDT\",\"BNBUSDT\"]",
+                  "disabled": true
+                },
+                {
+                  "key": "windowSize",
+                  "value": "1d",
+                  "description": "窗口大小: 1m-59m, 1h-23h, 1d-7d"
+                },
+                {
+                  "key": "type",
+                  "value": "FULL",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "滚动窗口价格变动统计\n\n权重: 4 × symbol数量(最大200)\n鉴权: NONE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Trading - 交易接口",
+      "item": [
+        {
+          "name": "New Order - 下单",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对"
+                },
+                {
+                  "key": "side",
+                  "value": "BUY",
+                  "description": "BUY或SELL"
+                },
+                {
+                  "key": "type",
+                  "value": "LIMIT",
+                  "description": "订单类型"
+                },
+                {
+                  "key": "timeInForce",
+                  "value": "GTC",
+                  "description": "有效期: GTC/IOC/FOK"
+                },
+                {
+                  "key": "quantity",
+                  "value": "0.001",
+                  "description": "数量"
+                },
+                {
+                  "key": "price",
+                  "value": "40000",
+                  "description": "价格"
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000",
+                  "description": "时间戳"
+                },
+                {
+                  "key": "signature",
+                  "value": "",
+                  "description": "签名"
+                }
+              ]
+            },
+            "description": "下单\n\n权重: 1\n鉴权: TRADE"
+          }
+        },
+        {
+          "name": "Test Order - 测试下单",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order", "test"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "side",
+                  "value": "BUY"
+                },
+                {
+                  "key": "type",
+                  "value": "LIMIT"
+                },
+                {
+                  "key": "timeInForce",
+                  "value": "GTC"
+                },
+                {
+                  "key": "quantity",
+                  "value": "0.001"
+                },
+                {
+                  "key": "price",
+                  "value": "40000"
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "测试下单(不实际下单)\n\n权重: 1\n鉴权: TRADE"
+          }
+        },
+        {
+          "name": "Cancel Order - 撤单",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "description": "订单ID"
+                },
+                {
+                  "key": "origClientOrderId",
+                  "value": "",
+                  "description": "原始客户订单ID",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "撤销订单\n\n权重: 1\n鉴权: TRADE"
+          }
+        },
+        {
+          "name": "Cancel All Orders - 撤销所有订单",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/openOrders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "openOrders"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "撤销交易对所有挂单\n\n权重: 1\n鉴权: TRADE"
+          }
+        },
+        {
+          "name": "Query Order - 查询订单",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "orderId",
+                  "value": ""
+                },
+                {
+                  "key": "origClientOrderId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "查询订单状态\n\n权重: 4\n鉴权: USER_DATA"
+          }
+        },
+        {
+          "name": "Open Orders - 当前挂单",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/openOrders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "openOrders"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "获取当前所有挂单\n\n权重: 单个symbol 6, 全部 80\n鉴权: USER_DATA"
+          }
+        },
+        {
+          "name": "All Orders - 所有订单",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/allOrders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "allOrders"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "获取所有订单历史\n\n权重: 20\n鉴权: USER_DATA"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Account - 账户接口",
+      "item": [
+        {
+          "name": "Account Info - 账户信息",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/account",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "account"],
+              "query": [
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "获取账户信息\n\n权重: 20\n鉴权: USER_DATA"
+          }
+        },
+        {
+          "name": "My Trades - 成交历史",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/myTrades",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "myTrades"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "fromId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "获取账户成交历史\n\n权重: 20\n鉴权: USER_DATA"
+          }
+        },
+        {
+          "name": "Rate Limit Order - 查询订单限制",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/rateLimit/order",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "rateLimit", "order"],
+              "query": [
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "查询当前订单计数\n\n权重: 40\n鉴权: USER_DATA"
+          }
+        },
+        {
+          "name": "Commission Rates - 手续费率",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/account/commission",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "account", "commission"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT"
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{$timestamp}}000"
+                },
+                {
+                  "key": "signature",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "获取交易对手续费率\n\n权重: 20\n鉴权: USER_DATA"
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Data Stream - 用户数据流",
+      "item": [
+        {
+          "name": "Create Listen Key",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/userDataStream",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "userDataStream"]
+            },
+            "description": "创建用户数据流listenKey\n\n权重: 2\n鉴权: USER_STREAM"
+          }
+        },
+        {
+          "name": "Keepalive Listen Key",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/userDataStream?listenKey=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "userDataStream"],
+              "query": [
+                {
+                  "key": "listenKey",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "延长listenKey有效期\n\n权重: 2\n鉴权: USER_STREAM"
+          }
+        },
+        {
+          "name": "Close Listen Key",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/userDataStream?listenKey=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "userDataStream"],
+              "query": [
+                {
+                  "key": "listenKey",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "关闭用户数据流\n\n权重: 2\n鉴权: USER_STREAM"
+          }
+        }
+      ]
+    }
+  ]
+}

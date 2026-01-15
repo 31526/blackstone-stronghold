@@ -1,0 +1,663 @@
+{
+  "info": {
+    "_postman_id": "binance-account-api-collection",
+    "name": "Binance Account API",
+    "description": "币安现货账户 REST API 接口集合\n\n## 鉴权说明\n\n所有接口都需要 USER_DATA 权限，需要进行 HMAC SHA256 签名认证。\n\n### 签名步骤\n\n1. 构建查询字符串（包含 timestamp）\n2. 使用 Secret Key 进行 HMAC SHA256 签名\n3. 将签名添加到请求参数中\n4. 在请求头中添加 X-MBX-APIKEY",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.binance.com",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY",
+      "type": "string"
+    },
+    {
+      "key": "secretKey",
+      "value": "YOUR_SECRET_KEY",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Account Information",
+      "item": [
+        {
+          "name": "Get Account Info",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/account?timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "account"],
+              "query": [
+                {
+                  "key": "omitZeroBalances",
+                  "value": "false",
+                  "description": "设为 true 时只返回非零余额",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "获取当前账户信息\n\n**权重**: 20\n\n**数据源**: Memory => Database"
+          }
+        },
+        {
+          "name": "Get Commission Rates",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/account/commission?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "account", "commission"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "获取当前账户的佣金费率\n\n**权重**: 20\n\n**数据源**: Database"
+          }
+        },
+        {
+          "name": "Get My Filters",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/myFilters?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "myFilters"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "检索账户在给定交易对上的相关过滤器列表\n\n**权重**: 40\n\n**数据源**: Memory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order Management",
+      "item": [
+        {
+          "name": "Query Order",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order?symbol=BTCUSDT&orderId=12345&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "orderId",
+                  "value": "12345",
+                  "description": "订单 ID"
+                },
+                {
+                  "key": "origClientOrderId",
+                  "value": "",
+                  "description": "客户端订单 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "查询订单状态\n\n**权重**: 4\n\n**数据源**: Memory => Database\n\n**注意**: orderId 或 origClientOrderId 必须提供其一"
+          }
+        },
+        {
+          "name": "Get Open Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/openOrders?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "openOrders"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（可选，不传返回所有）"
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "获取当前所有挂单\n\n**权重**: 单个交易对 6，不传 symbol 80\n\n**数据源**: Memory => Database"
+          }
+        },
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/allOrders?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "allOrders"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "description": "起始订单 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "description": "开始时间",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "数量限制，默认 500，最大 1000",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "获取所有订单（活跃、已取消、已成交）\n\n**权重**: 20\n\n**数据源**: Database"
+          }
+        },
+        {
+          "name": "Get Order Amendments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/order/amendments?symbol=BTCUSDT&orderId=12345&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "order", "amendments"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "orderId",
+                  "value": "12345",
+                  "description": "订单 ID（必填）"
+                },
+                {
+                  "key": "fromExecutionId",
+                  "value": "",
+                  "description": "起始执行 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "数量限制，默认 500，最大 1000",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "查询单个订单的所有修改记录\n\n**权重**: 4\n\n**数据源**: Database"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Trade History",
+      "item": [
+        {
+          "name": "Get My Trades",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/myTrades?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "myTrades"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "description": "订单 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "description": "开始时间",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间",
+                  "disabled": true
+                },
+                {
+                  "key": "fromId",
+                  "value": "",
+                  "description": "起始成交 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "数量限制，默认 500，最大 1000",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "获取账户成交历史\n\n**权重**: 不带 orderId 20，带 orderId 5\n\n**数据源**: Memory => Database"
+          }
+        },
+        {
+          "name": "Get My Allocations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/myAllocations?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "myAllocations"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "startTime",
+                  "value": "",
+                  "description": "开始时间",
+                  "disabled": true
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间",
+                  "disabled": true
+                },
+                {
+                  "key": "fromAllocationId",
+                  "value": "",
+                  "description": "起始分配 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "description": "订单 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "数量限制，默认 500，最大 1000",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "检索 SOR 订单的分配结果\n\n**权重**: 20\n\n**数据源**: Database"
+          }
+        },
+        {
+          "name": "Get My Prevented Matches",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/myPreventedMatches?symbol=BTCUSDT&timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "myPreventedMatches"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对（必填）"
+                },
+                {
+                  "key": "preventedMatchId",
+                  "value": "",
+                  "description": "被阻止的匹配 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "orderId",
+                  "value": "",
+                  "description": "订单 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "fromPreventedMatchId",
+                  "value": "",
+                  "description": "起始被阻止匹配 ID",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "description": "数量限制，默认 500，最大 1000",
+                  "disabled": true
+                },
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "显示因 STP（自我交易预防）而过期的订单列表\n\n**权重**: 按 preventedMatchId 查询 2，其他 20\n\n**数据源**: Database"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rate Limits",
+      "item": [
+        {
+          "name": "Get Order Rate Limit",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-MBX-APIKEY",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/rateLimit/order?timestamp={{timestamp}}&signature={{signature}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v3", "rateLimit", "order"],
+              "query": [
+                {
+                  "key": "recvWindow",
+                  "value": "5000",
+                  "description": "请求有效期（毫秒）",
+                  "disabled": true
+                },
+                {
+                  "key": "timestamp",
+                  "value": "{{timestamp}}",
+                  "description": "时间戳（毫秒）"
+                },
+                {
+                  "key": "signature",
+                  "value": "{{signature}}",
+                  "description": "HMAC SHA256 签名"
+                }
+              ]
+            },
+            "description": "显示用户所有时间间隔的未成交订单数\n\n**权重**: 40\n\n**数据源**: Memory"
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// 设置时间戳",
+          "const timestamp = Date.now();",
+          "pm.environment.set('timestamp', timestamp);",
+          "",
+          "// 获取请求参数",
+          "const params = pm.request.url.query.toObject();",
+          "delete params.signature;",
+          "",
+          "// 构建查询字符串",
+          "const queryString = Object.keys(params)",
+          "  .filter(key => params[key] !== undefined && params[key] !== '')",
+          "  .map(key => `${key}=${params[key]}`)",
+          "  .join('&');",
+          "",
+          "// 生成签名",
+          "const secretKey = pm.environment.get('secretKey');",
+          "const signature = CryptoJS.HmacSHA256(queryString, secretKey).toString();",
+          "pm.environment.set('signature', signature);"
+        ]
+      }
+    }
+  ]
+}
