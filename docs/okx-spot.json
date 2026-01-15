@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "okx-spot-api-v5",
+    "name": "OKX Spot Market API V5",
+    "description": "OKX 现货行情 REST API 文档\n\n## 基础信息\n- 基础URL: https://www.okx.com\n- 所有接口返回 JSON 格式\n- 时间戳单位为毫秒\n\n## 响应格式\n```json\n{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [...]\n}\n```\n\n## 错误码\n- 0: 成功\n- 50000: 参数错误\n- 50001: 系统繁忙\n- 50004: API endpoint请求超时\n- 50011: 请求频率过高\n\n## 签名认证 (私有接口)\n- OK-ACCESS-KEY: API Key\n- OK-ACCESS-SIGN: 签名 (Base64编码的HMAC SHA256)\n- OK-ACCESS-TIMESTAMP: UTC时间戳\n- OK-ACCESS-PASSPHRASE: 创建API时设置的密码\n\n签名字符串: timestamp + method + requestPath + body",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.okx.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Public Data - 公共数据",
+      "description": "公共数据接口，无需签名认证",
+      "item": [
+        {
+          "name": "获取交易产品信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/public/instruments?instType=SPOT&instId=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "public", "instruments"],
+              "query": [
+                {
+                  "key": "instType",
+                  "value": "SPOT",
+                  "description": "产品类型 (SPOT-现货, MARGIN-杠杆, SWAP-永续, FUTURES-交割, OPTION-期权)"
+                },
+                {
+                  "key": "instId",
+                  "value": "",
+                  "description": "产品ID (可选，如 BTC-USDT)"
+                }
+              ]
+            },
+            "description": "获取所有可交易产品的信息列表\n\n## 访问限制\n- 频率限制: 20次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| instType | string | 是 | 产品类型 (SPOT/MARGIN/SWAP/FUTURES/OPTION) |\n| instId | string | 否 | 产品ID，如 BTC-USDT |\n| uly | string | 否 | 标的指数 (仅适用于交割/永续/期权) |\n| instFamily | string | 否 | 交易品种 (仅适用于交割/永续/期权) |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| instType | string | 产品类型 |\n| instId | string | 产品ID |\n| baseCcy | string | 基础货币 |\n| quoteCcy | string | 计价货币 |\n| minSz | string | 最小下单数量 |\n| lotSz | string | 下单数量精度 |\n| tickSz | string | 价格精度 |\n| state | string | 产品状态 (live/suspend/preopen) |\n| listTime | string | 上线时间 |\n| maxLmtSz | string | 最大限价单数量 |\n| maxMktSz | string | 最大市价单数量 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v5/public/instruments?instType=SPOT",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v5", "public", "instruments"],
+                  "query": [
+                    {
+                      "key": "instType",
+                      "value": "SPOT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [\n    {\n      \"instType\": \"SPOT\",\n      \"instId\": \"BTC-USDT\",\n      \"baseCcy\": \"BTC\",\n      \"quoteCcy\": \"USDT\",\n      \"minSz\": \"0.00001\",\n      \"lotSz\": \"0.00000001\",\n      \"tickSz\": \"0.1\",\n      \"state\": \"live\",\n      \"listTime\": \"1548133200000\",\n      \"maxLmtSz\": \"9999999999\",\n      \"maxMktSz\": \"1000000\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Market Data - 行情数据",
+      "description": "行情数据接口，无需签名认证",
+      "item": [
+        {
+          "name": "获取所有产品行情信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/market/tickers?instType=SPOT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "market", "tickers"],
+              "query": [
+                {
+                  "key": "instType",
+                  "value": "SPOT",
+                  "description": "产品类型 (SPOT-现货, SWAP-永续, FUTURES-交割, OPTION-期权)"
+                }
+              ]
+            },
+            "description": "获取所有产品行情信息\n\n## 访问限制\n- 频率限制: 20次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| instType | string | 是 | 产品类型 (SPOT/SWAP/FUTURES/OPTION) |\n| uly | string | 否 | 标的指数 (仅适用于交割/永续/期权) |\n| instFamily | string | 否 | 交易品种 (仅适用于交割/永续/期权) |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| instType | string | 产品类型 |\n| instId | string | 产品ID |\n| last | string | 最新成交价 |\n| lastSz | string | 最新成交数量 |\n| askPx | string | 卖一价 |\n| askSz | string | 卖一量 |\n| bidPx | string | 买一价 |\n| bidSz | string | 买一量 |\n| open24h | string | 24小时开盘价 |\n| high24h | string | 24小时最高价 |\n| low24h | string | 24小时最低价 |\n| volCcy24h | string | 24小时成交额(计价货币) |\n| vol24h | string | 24小时成交量(基础货币) |\n| ts | string | 数据时间戳 |\n| sodUtc0 | string | UTC 0点开盘价 |\n| sodUtc8 | string | UTC+8 0点开盘价 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v5/market/tickers?instType=SPOT",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v5", "market", "tickers"],
+                  "query": [
+                    {
+                      "key": "instType",
+                      "value": "SPOT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [\n    {\n      \"instType\": \"SPOT\",\n      \"instId\": \"BTC-USDT\",\n      \"last\": \"96742.9\",\n      \"lastSz\": \"0.10058288\",\n      \"askPx\": \"96743\",\n      \"askSz\": \"1.61268204\",\n      \"bidPx\": \"96742.9\",\n      \"bidSz\": \"0.5049887\",\n      \"open24h\": \"97372.6\",\n      \"high24h\": \"97925.4\",\n      \"low24h\": \"95451\",\n      \"volCcy24h\": \"790935483.667778182\",\n      \"vol24h\": \"8173.37058317\",\n      \"ts\": \"1768496559615\",\n      \"sodUtc0\": \"96946\",\n      \"sodUtc8\": \"96742\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取单个产品行情信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/market/ticker?instId=BTC-USDT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "market", "ticker"],
+              "query": [
+                {
+                  "key": "instId",
+                  "value": "BTC-USDT",
+                  "description": "产品ID (必填)"
+                }
+              ]
+            },
+            "description": "获取单个产品行情信息\n\n## 访问限制\n- 频率限制: 20次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| instId | string | 是 | 产品ID，如 BTC-USDT |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| instType | string | 产品类型 |\n| instId | string | 产品ID |\n| last | string | 最新成交价 |\n| lastSz | string | 最新成交数量 |\n| askPx | string | 卖一价 |\n| askSz | string | 卖一量 |\n| bidPx | string | 买一价 |\n| bidSz | string | 买一量 |\n| open24h | string | 24小时开盘价 |\n| high24h | string | 24小时最高价 |\n| low24h | string | 24小时最低价 |\n| volCcy24h | string | 24小时成交额(计价货币) |\n| vol24h | string | 24小时成交量(基础货币) |\n| ts | string | 数据时间戳 |\n| sodUtc0 | string | UTC 0点开盘价 |\n| sodUtc8 | string | UTC+8 0点开盘价 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v5/market/ticker?instId=BTC-USDT",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v5", "market", "ticker"],
+                  "query": [
+                    {
+                      "key": "instId",
+                      "value": "BTC-USDT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [\n    {\n      \"instType\": \"SPOT\",\n      \"instId\": \"BTC-USDT\",\n      \"last\": \"96742.9\",\n      \"lastSz\": \"0.10058288\",\n      \"askPx\": \"96743\",\n      \"askSz\": \"1.61268204\",\n      \"bidPx\": \"96742.9\",\n      \"bidSz\": \"0.5049887\",\n      \"open24h\": \"97372.6\",\n      \"high24h\": \"97925.4\",\n      \"low24h\": \"95451\",\n      \"volCcy24h\": \"790935483.667778182\",\n      \"vol24h\": \"8173.37058317\",\n      \"ts\": \"1768496559615\",\n      \"sodUtc0\": \"96946\",\n      \"sodUtc8\": \"96742\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

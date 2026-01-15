@@ -1,0 +1,248 @@
+{
+  "info": {
+    "_postman_id": "bitget-spot-api-v2",
+    "name": "Bitget Spot Market API V2",
+    "description": "Bitget 现货行情 REST API 文档\n\n## 基础信息\n- 基础URL: https://api.bitget.com\n- 所有接口返回 JSON 格式\n- 时间戳单位为毫秒\n\n## 响应格式\n```json\n{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1234567890123,\n  \"data\": {...}\n}\n```\n\n## 错误码\n- 00000: 成功\n- 40001: 参数错误\n- 40002: 签名错误\n- 40003: 权限不足\n- 50001: 系统错误",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.bitget.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Public - 公共接口",
+      "description": "公共行情接口，无需签名",
+      "item": [
+        {
+          "name": "获取币种列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/spot/public/coins",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "spot", "public", "coins"]
+            },
+            "description": "获取平台支持的所有币种信息\n\n## 访问限制\n- 频率限制: 20次/秒\n- 权限要求: 无\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| coinId | string | 币种ID |\n| coin | string | 币种名称 |\n| transfer | string | 是否可划转 (true/false) |\n| chains | array | 支持的链列表 |\n| areaCoin | string | 是否为区域币种 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v2/spot/public/coins",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v2", "spot", "public", "coins"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1768494564241,\n  \"data\": [\n    {\n      \"coinId\": \"1\",\n      \"coin\": \"BTC\",\n      \"transfer\": \"true\",\n      \"chains\": [\n        {\n          \"chain\": \"BTC\",\n          \"needTag\": \"false\",\n          \"withdrawable\": \"true\",\n          \"rechargeable\": \"true\",\n          \"withdrawFee\": \"0.00004\",\n          \"extraWithdrawFee\": \"0\",\n          \"depositConfirm\": \"1\",\n          \"withdrawConfirm\": \"2\",\n          \"minDepositAmount\": \"0.00001\",\n          \"minWithdrawAmount\": \"0.0005\",\n          \"browserUrl\": \"https://www.blockchain.com/explorer/transactions/btc/\",\n          \"contractAddress\": null,\n          \"withdrawStep\": \"0\",\n          \"withdrawMinScale\": \"8\",\n          \"congestion\": \"normal\"\n        }\n      ],\n      \"areaCoin\": \"no\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取交易对列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/spot/public/symbols?symbol=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "spot", "public", "symbols"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "",
+                  "description": "交易对名称 (可选，不传则返回所有)"
+                }
+              ]
+            },
+            "description": "获取平台支持的所有交易对信息\n\n## 访问限制\n- 频率限制: 20次/秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| symbol | string | 否 | 交易对名称，如 BTCUSDT |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| symbol | string | 交易对名称 |\n| baseCoin | string | 基础币种 |\n| quoteCoin | string | 计价币种 |\n| minTradeAmount | string | 最小交易数量 |\n| maxTradeAmount | string | 最大交易数量 |\n| takerFeeRate | string | Taker手续费率 |\n| makerFeeRate | string | Maker手续费率 |\n| pricePrecision | string | 价格精度 |\n| quantityPrecision | string | 数量精度 |\n| quotePrecision | string | 金额精度 |\n| status | string | 交易对状态 (online/offline/suspend) |\n| minTradeUSDT | string | 最小交易金额(USDT) |\n| buyLimitPriceRatio | string | 买入限价比例 |\n| sellLimitPriceRatio | string | 卖出限价比例 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v2/spot/public/symbols",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v2", "spot", "public", "symbols"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1768494571675,\n  \"data\": [\n    {\n      \"symbol\": \"BTCUSDT\",\n      \"baseCoin\": \"BTC\",\n      \"quoteCoin\": \"USDT\",\n      \"minTradeAmount\": \"0\",\n      \"maxTradeAmount\": \"900000000000000000000\",\n      \"takerFeeRate\": \"0.002\",\n      \"makerFeeRate\": \"0.002\",\n      \"pricePrecision\": \"2\",\n      \"quantityPrecision\": \"6\",\n      \"quotePrecision\": \"8\",\n      \"status\": \"online\",\n      \"minTradeUSDT\": \"1\",\n      \"buyLimitPriceRatio\": \"0.02\",\n      \"sellLimitPriceRatio\": \"0.02\",\n      \"areaSymbol\": \"no\",\n      \"orderQuantity\": \"200\",\n      \"openTime\": \"1550736060000\",\n      \"offTime\": \"\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Market - 行情接口",
+      "description": "行情数据接口，无需签名",
+      "item": [
+        {
+          "name": "获取所有交易对行情",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/spot/market/tickers?symbol=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "spot", "market", "tickers"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "",
+                  "description": "交易对名称 (可选，不传则返回所有)"
+                }
+              ]
+            },
+            "description": "获取交易对的行情信息\n\n## 访问限制\n- 频率限制: 20次/秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| symbol | string | 否 | 交易对名称，如 BTCUSDT |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| symbol | string | 交易对名称 |\n| open | string | 24小时开盘价 |\n| high24h | string | 24小时最高价 |\n| low24h | string | 24小时最低价 |\n| lastPr | string | 最新成交价 |\n| quoteVolume | string | 24小时成交额(计价币种) |\n| baseVolume | string | 24小时成交量(基础币种) |\n| usdtVolume | string | 24小时成交额(USDT) |\n| ts | string | 时间戳 |\n| bidPr | string | 买一价 |\n| askPr | string | 卖一价 |\n| bidSz | string | 买一量 |\n| askSz | string | 卖一量 |\n| openUtc | string | UTC 0点开盘价 |\n| changeUtc24h | string | UTC 24小时涨跌幅 |\n| change24h | string | 24小时涨跌幅 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v2/spot/market/tickers?symbol=BTCUSDT",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v2", "spot", "market", "tickers"],
+                  "query": [
+                    {
+                      "key": "symbol",
+                      "value": "BTCUSDT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1768494580708,\n  \"data\": [\n    {\n      \"symbol\": \"BTCUSDT\",\n      \"open\": \"97224.87\",\n      \"high24h\": \"97928.81\",\n      \"low24h\": \"95429.51\",\n      \"lastPr\": \"96399.73\",\n      \"quoteVolume\": \"634340459.63417\",\n      \"baseVolume\": \"6556.268707\",\n      \"usdtVolume\": \"634340459.63416969\",\n      \"ts\": \"1768494579590\",\n      \"bidPr\": \"96399.72\",\n      \"askPr\": \"96399.73\",\n      \"bidSz\": \"0.954528\",\n      \"askSz\": \"0.278587\",\n      \"openUtc\": \"96943.62\",\n      \"changeUtc24h\": \"-0.00561\",\n      \"change24h\": \"-0.00849\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取最近成交记录",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/spot/market/fills?symbol=BTCUSDT&limit=50",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "spot", "market", "fills"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对名称 (必填)"
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "description": "返回数量，默认 100，最大 500"
+                }
+              ]
+            },
+            "description": "获取最近成交记录\n\n## 访问限制\n- 频率限制: 10次/秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| symbol | string | 是 | 交易对名称，如 BTCUSDT |\n| limit | string | 否 | 返回数量，默认 100，最大 500 |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| symbol | string | 交易对名称 |\n| tradeId | string | 成交ID |\n| side | string | 交易方向 (buy/sell) |\n| price | string | 成交价格 |\n| size | string | 成交数量 |\n| ts | string | 成交时间戳 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v2/spot/market/fills?symbol=BTCUSDT&limit=20",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v2", "spot", "market", "fills"],
+                  "query": [
+                    {
+                      "key": "symbol",
+                      "value": "BTCUSDT"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1768494609729,\n  \"data\": [\n    {\n      \"symbol\": \"BTCUSDT\",\n      \"tradeId\": \"1395733042628902912\",\n      \"side\": \"buy\",\n      \"price\": \"96438.03\",\n      \"size\": \"0.002254\",\n      \"ts\": \"1768494609505\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取历史成交记录",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/spot/market/fills-history?symbol=BTCUSDT&limit=50&endTime=",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "spot", "market", "fills-history"],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "BTCUSDT",
+                  "description": "交易对名称 (必填)"
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "description": "返回数量，默认 100，最大 500"
+                },
+                {
+                  "key": "endTime",
+                  "value": "",
+                  "description": "结束时间戳(毫秒)"
+                }
+              ]
+            },
+            "description": "获取历史成交记录\n\n## 访问限制\n- 频率限制: 10次/秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| symbol | string | 是 | 交易对名称，如 BTCUSDT |\n| limit | string | 否 | 返回数量，默认 100，最大 500 |\n| endTime | string | 否 | 结束时间戳(毫秒) |\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| symbol | string | 交易对名称 |\n| tradeId | string | 成交ID |\n| side | string | 交易方向 (Buy/Sell) |\n| price | string | 成交价格 |\n| size | string | 成交数量 |\n| ts | string | 成交时间戳 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v2/spot/market/fills-history?symbol=BTCUSDT&limit=20",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v2", "spot", "market", "fills-history"],
+                  "query": [
+                    {
+                      "key": "symbol",
+                      "value": "BTCUSDT"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"00000\",\n  \"msg\": \"success\",\n  \"requestTime\": 1768494627035,\n  \"data\": [\n    {\n      \"symbol\": \"BTCUSDT\",\n      \"tradeId\": \"1395733107179241472\",\n      \"side\": \"Buy\",\n      \"price\": \"96478.83\",\n      \"size\": \"0.003466\",\n      \"ts\": \"1768494624895\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

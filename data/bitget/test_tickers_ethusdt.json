@@ -1,0 +1,25 @@
+{
+  "code": "00000",
+  "msg": "success",
+  "requestTime": 1768495023510,
+  "data": [
+    {
+      "open": "3384.87",
+      "symbol": "ETHUSDT",
+      "high24h": "3400.95",
+      "low24h": "3277.52",
+      "lastPr": "3315.95",
+      "quoteVolume": "298710655.8567",
+      "baseVolume": "89280.177",
+      "usdtVolume": "298710655.856636",
+      "ts": "1768495021934",
+      "bidPr": "3315.89",
+      "askPr": "3315.9",
+      "bidSz": "0.3333",
+      "askSz": "7.5524",
+      "openUtc": "3354.43",
+      "changeUtc24h": "-0.01147",
+      "change24h": "-0.02036"
+    }
+  ]
+}

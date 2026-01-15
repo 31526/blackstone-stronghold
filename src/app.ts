@@ -5,6 +5,8 @@ import coinmarketcapRoutes from '@/routes/coinmarketcap.routes';
 import etherscanRoutes from '@/routes/etherscan';
 import binanceRoutes from '@/routes/binance';
 import dexscreenerRoutes from '@/routes/dexscreener';
+import bitgetRoutes from '@/routes/bitget';
+import okxRoutes from '@/routes/okx';
 
 // 加载环境变量
 dotenv.config();
@@ -32,6 +34,12 @@ app.use('/binance', binanceRoutes);
 
 // DexScreener 路由
 app.use('/dexscreener', dexscreenerRoutes);
+
+// Bitget 路由
+app.use('/bitget', bitgetRoutes);
+
+// OKX 路由
+app.use('/okx', okxRoutes);
 
 // 启动服务器
 const startServer = async () => {
