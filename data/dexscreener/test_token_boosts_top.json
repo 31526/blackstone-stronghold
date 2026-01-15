@@ -1,0 +1,649 @@
+[
+  {
+    "url": "https://dexscreener.com/solana/usoryaqjch6e18ncddvworgto6osqs9mud8jxesspwr",
+    "chainId": "solana",
+    "tokenAddress": "USoRyaQjch6E18nCdDvWoRgTo6osQs9MUd8JXEsspWR",
+    "description": "America's Oil Reserve for the Digital Age.",
+    "icon": "9599838b45c9fca0d93332c083bba4d40b30bbe3a6354f988585fcbc8c94d299",
+    "header": "https://cdn.dexscreener.com/cms/images/e2adbc25382c7fab9dda68f5a63be8e5f90b2a53eb79305a9b6dc2cd29d77274?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/USoRyaQjch6E18nCdDvWoRgTo6osQs9MUd8JXEsspWR?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://usor.tech"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/USORProject"
+      }
+    ],
+    "totalAmount": 1000
+  },
+  {
+    "url": "https://dexscreener.com/solana/5wbukwdxavvgozecxdd7gpx1zxk9fynmh2ggmz11pump",
+    "chainId": "solana",
+    "tokenAddress": "5wbUkwdxaVvgozECXDd7GPX1ZXK9fYnMH2ggmz11pump",
+    "description": "NEKOMANGA is a curious little manga cat who lives between panels and pages. She loves reading everything she finds, from unfinished chapters to random notes left behind on the internet",
+    "icon": "6f68ce05689423cbac1e997ebaf3baf6fff28a6e08e8e6cc1f1b8442076ffae4",
+    "header": "https://cdn.dexscreener.com/cms/images/c4cc1bdc0c5659639e1b08eca53c781aaaf3018db014ccc5105a37aca976696b?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/5wbUkwdxaVvgozECXDd7GPX1ZXK9fYnMH2ggmz11pump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://nekomanga.xyz/"
+      },
+      {
+        "url": "https://pump.fun/coin/5wbUkwdxaVvgozECXDd7GPX1ZXK9fYnMH2ggmz11pump"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/nek0manga"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/nek0manga"
+      }
+    ],
+    "totalAmount": 530
+  },
+  {
+    "url": "https://dexscreener.com/solana/daaxmru9kueuyqf8vuddbcl5x4qhq3ttdmyxdbngpump",
+    "chainId": "solana",
+    "tokenAddress": "DAAXmRU9KUEuyqF8VuddbcL5X4QhQ3tTDMYxDbNgpump",
+    "description": "Covering worldwide news but in cartoons.",
+    "icon": "713076b85dce91ef0d1a6c102be4b681b7853c3f5f168f20a5efaa5d067b7f6e",
+    "header": "https://cdn.dexscreener.com/cms/images/e9a878f54022c7caded8f936f6170bfdf86f38d30add8da5b6e060b3ec4d80a6?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/DAAXmRU9KUEuyqF8VuddbcL5X4QhQ3tTDMYxDbNgpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://psyopcartoon.fun/"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/psycartoon"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/PsyopCartoon_"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/6rpqpapppujbt4hj2k9s1egbck8yn3mehirsxwdipump",
+    "chainId": "solana",
+    "tokenAddress": "6rpqpaPpPUjbT4Hj2k9S1eGBCK8Yn3MehirsxWdipump",
+    "description": "PSYOPMIA is an anime-based information and character network. It presents real-world events and internet culture through scenes, characters, and visual moments instead of traditional headlines",
+    "icon": "2245e68d6ac5c04273729093ff15ef141fa2110b48363b7caca92777cd0b8c6e",
+    "header": "https://cdn.dexscreener.com/cms/images/24fb43783b8fdca1c3e504422aa42f148b93e743257a636fe9acc6e618058484?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/6rpqpaPpPUjbT4Hj2k9S1eGBCK8Yn3MehirsxWdipump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://psyopmia.xyz/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/psyopmia"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/psyopmia"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/2tju3pmh4hjjka9hn6hngdopfnqqaeeytfqw98kqpump",
+    "chainId": "solana",
+    "tokenAddress": "2tJU3pMh4HJjKa9HN6HngdopfNqqaeEytFqW98Kqpump",
+    "description": "The queen of the whales.",
+    "icon": "e946ca04ea2009c314b5e101b7e278c58d05e2064a65de784517b7c7c056bec6",
+    "header": "https://cdn.dexscreener.com/cms/images/3ddb7e60b6b25784028f6398858778c578f4031788305c46c8ba5112509910a1?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/2tJU3pMh4HJjKa9HN6HngdopfNqqaeEytFqW98Kqpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://whalequeen.io/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/yunaintern"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/j6ygxqwpp3gfvgmnvxgqnrk8qsmtvvtk2wgfuus1pump",
+    "chainId": "solana",
+    "tokenAddress": "J6YgxqwPp3GFvGMNvxgQNRK8qSmtvvTK2wgfuUs1pump",
+    "icon": "cd18c9132849ff698605593abad66a79044e78c1ca6a6961008a378f2ea392e5",
+    "header": "https://cdn.dexscreener.com/cms/images/63345fd980ef4bb89997716c9cfd989aaf6b5fc9944d9f7a855fd07a2e59b3f2?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/J6YgxqwPp3GFvGMNvxgQNRK8qSmtvvTK2wgfuUs1pump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2000096503356920134"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/7fuvebmze2mmyrvjq3gtgaypyf9s9rcimwctplspump",
+    "chainId": "solana",
+    "tokenAddress": "7FUvEbMze2mmYrVJq3GtGAyPyF9s9RCiMWCtPLSpump",
+    "description": "Welcome to The White Fwog community! \n\nCombining two crazy narratives $WhiteWhale (100M) + Fwog (15M)",
+    "icon": "7b727eb7f351170b33d5027e74971e69c0d9f462e05beb7c77cd093e15bf8234",
+    "header": "https://cdn.dexscreener.com/cms/images/23d18ca4b2461b6d19f7abcdb6f1a27325815fb617bcabb760b77cd14d38842c?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7FUvEbMze2mmYrVJq3GtGAyPyF9s9RCiMWCtPLSpump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011539665011294394"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/gh55jduh3aeyhvvwphzykgvzxacc1ar1gagiigs5pump",
+    "chainId": "solana",
+    "tokenAddress": "GH55JDUH3aeyHvVwPHzYKgvzXaCc1aR1gagiiGs5pump",
+    "description": "All fees redirected to the Retard Finder",
+    "icon": "5f8105e0f4ed8b305fb0b7355f40b9aa3d31a0e9d9d3e938a0830f050ad2dd7f",
+    "header": "https://cdn.dexscreener.com/cms/images/4a2f6c16c97ee01d67ffdc649ebbd80e98bc1ffc8e7efe6e795836e22f7f4edc?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/GH55JDUH3aeyHvVwPHzYKgvzXaCc1aR1gagiiGs5pump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011757809298293221"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/RetardCoinLoL"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/fcwfk5trx98scazfjiqmgjdapf8csuvtndohw8arpump",
+    "chainId": "solana",
+    "tokenAddress": "FCwfk5TRx98scAZfjiqMGJdaPf8csUVTnDohw8ARpump",
+    "description": "In Chinese, Dòugén (逗哏) means “Comedian”, while phonetically echoing the word Doge. \n\nJust like the banana on the wall, Dòugén asks a simple question: what gives something value, the object itself or the story we agree to tell about it?",
+    "icon": "f3b930ea4d2d41b64a3bf8752597061533d000f1fb0eb4f7a2e518072a4c318f",
+    "header": "https://cdn.dexscreener.com/cms/images/2dc0d95f197e4c778ff96767c3f6a08f9a63a110af2bef1195416ba173fd044f?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FCwfk5TRx98scAZfjiqMGJdaPf8csUVTnDohw8ARpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://dougen.website/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011529213405184387"
+      }
+    ],
+    "totalAmount": 500
+  },
+  {
+    "url": "https://dexscreener.com/solana/7hczz4segtw8rlm6m5br7zq8kamtm1mj3jhddnirpump",
+    "chainId": "solana",
+    "tokenAddress": "7HcZz4segTW8rLM6m5bR7ZQ8KamTm1MJ3jhdDNirpump",
+    "description": "PrivacyUSD is an enterprise-grade privacy protocol for stablecoin payments, offering lottery-level privacy (0.0001% traceable probability) with regulatory compliance. It enables private deposits, shielded transfers, and invisible swaps for USDC, USDT, and other stablecoins through a proprietary 7-layer privacy technology stack.",
+    "icon": "9808c2b6bc0839bf4b82da09b7957317a9682e94c420897574e3b6e9944360aa",
+    "header": "https://cdn.dexscreener.com/cms/images/9ab933f94b6952adf518c367bade3a8efbefb8870d704bd0135ff04c89250ea1?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/7HcZz4segTW8rLM6m5bR7ZQ8KamTm1MJ3jhdDNirpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://www.privacyusd.com/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/usdprivacy?s=21"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/PrivacyUSD"
+      }
+    ],
+    "totalAmount": 300
+  },
+  {
+    "url": "https://dexscreener.com/solana/gajvgwtzok2hhsupi87en6hcv1teqmjokbru1y7wpump",
+    "chainId": "solana",
+    "tokenAddress": "GAjvGwTZok2HHSUPi87EN6hCv1TeQMjokbru1y7Wpump",
+    "description": "„JEET,’ short for “Just Exit Early Trader,” is a term used to describe those who impulsively sell their crypto holdings, even if the profit is relatively small. This behavior is driven by a fear of market downturns or a desire to secure quick gains.",
+    "icon": "ab3e42618f88ddc2cc5fa4943566bd67a5c48fe1ea8df3775eb7f167746c2adb",
+    "header": "https://cdn.dexscreener.com/cms/images/5cc94f61838b80b0663de2d1345dd5f07347f44136ffb3b10165ff0d73c267b2?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/GAjvGwTZok2HHSUPi87EN6hCv1TeQMjokbru1y7Wpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://www.jeetmeme.fun/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2000320358403232203"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/jeetmemedepot"
+      },
+      {
+        "type": "tiktok",
+        "url": "https://www.tiktok.com/@jeetmeme?_r=1&_t=ZN-934hZWZpQSE"
+      },
+      {
+        "type": "instagram",
+        "url": "https://www.instagram.com/jeetsolana?igsh=dG1rejR6a3F3ZDcx&utm_source=qr"
+      }
+    ],
+    "totalAmount": 200
+  },
+  {
+    "url": "https://dexscreener.com/solana/cznmjtw6kqqnmsyksrc1reqeseey3reqm8yro6jcpump",
+    "chainId": "solana",
+    "tokenAddress": "CzNMjTW6kQQNMSYksrc1reqEseey3ReQm8yro6jCpump",
+    "description": "Nanj Coin is a Japanese meme token inspired by internet culture.\nCreated for fun and community engagement.\nThis is a meme token. No financial advice.",
+    "icon": "dcd58aaf27df4008df9898fc734c937725c21b74137cc26b0351da4138516cc2",
+    "header": "https://cdn.dexscreener.com/cms/images/0609ffa352102b8c59d7e9d8433d6ee774ca4b6bba34eb21fe4d4993cf77d412?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/CzNMjTW6kQQNMSYksrc1reqEseey3ReQm8yro6jCpump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/yakiunooniityan"
+      }
+    ],
+    "totalAmount": 130
+  },
+  {
+    "url": "https://dexscreener.com/solana/fvdrvgdsvetyzifjnasgjffqltxaifpeu98psft1pump",
+    "chainId": "solana",
+    "tokenAddress": "FVDrvgdSvetYZiFjnaSGjffQLtxaifpEU98PSFT1pump",
+    "description": "This token is created to support a 22 Y/O trencher who lost both parents and is left with a significant debt he is unable to repay on his own.",
+    "icon": "611e2d694e6a3ece0d5ad6736d6559432989a96c8288b171a6b100a7efeaae3d",
+    "header": "https://cdn.dexscreener.com/cms/images/3fdcbfff979f2146ea03dc1b281f63fbc4a190670ffc625a39d4ddf8d44883aa?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FVDrvgdSvetYZiFjnaSGjffQLtxaifpEU98PSFT1pump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://pump.fun/coin/FVDrvgdSvetYZiFjnaSGjffQLtxaifpEU98PSFT1pump"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011763654614560876"
+      }
+    ],
+    "totalAmount": 110
+  },
+  {
+    "url": "https://dexscreener.com/solana/6jcwglde9fztlbdlqmaiukuifyucpm2khurdjtkhbj5h",
+    "chainId": "solana",
+    "tokenAddress": "6JcwGLDe9fZTLBdLQmaiuKUifyUCpM2kHURdJtkHBJ5H",
+    "description": "From tacos to tendies, nothing fuels the fire like Don El Fart",
+    "icon": "a37681a11cc8fe29091ca037b0b5d213b7817c5127534db6dccb64f716102f19",
+    "header": "https://cdn.dexscreener.com/cms/images/3d8c8a811f15df818ff9c53d07f18b970f00983b1b5b6cd9a92c6ab23fea6151?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/6JcwGLDe9fZTLBdLQmaiuKUifyUCpM2kHURdJtkHBJ5H?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://elfarto.xyz"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/El_Fart_Meme"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/El_Fart_Meme"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/h7uu8tkmz3om6cepkjvdeckb79dg4zfmu2p5v1kcbonk",
+    "chainId": "solana",
+    "tokenAddress": "H7uU8TKmz3om6cepKJvdEckB79dg4zFMU2p5v1kcbonk",
+    "description": "bonkfun just announced their new BONKERS Launches option, which increases creator fees etc. (read into it). Dev deleted the XCOM when we all had our bonkers there, lets make it top1.",
+    "icon": "a2309815ea2a7dbf30240ae364cf546a987c4e44c590f6064058cdf2b72b8c9f",
+    "header": "https://cdn.dexscreener.com/cms/images/8f1ffaaf8e893746cbc74d3eb92c65057f386299092a26c8bfca2c0bd22be17b?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/H7uU8TKmz3om6cepKJvdEckB79dg4zFMU2p5v1kcbonk?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://bonkersonsol.xyz/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011522417785500136"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/frmgvbbwqwbayjxmsmoks6yfvwk7h6uj1wcqdvmfpump",
+    "chainId": "solana",
+    "tokenAddress": "FRmgvbbwQWbAYJxmSmokS6yfVwk7H6Uj1WcqdvMFpump",
+    "description": "The World Isn’t Collapsing. It’s Being Edited.\n\nPsyopManga turns real global power struggles into raw manga panels. Politics. War. Propaganda. Influence. Redrawn as stories you can see.",
+    "icon": "9ec4fb26b21d9dabce387bc489a614c8e0f2f92dcf1a6d6682322415792dfefa",
+    "header": "https://cdn.dexscreener.com/cms/images/9ede51706125beeaaa33f276c5f725396b55e559a4938b07b411817833da9eec?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/FRmgvbbwQWbAYJxmSmokS6yfVwk7H6Uj1WcqdvMFpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://psyopmanga.fun/"
+      },
+      {
+        "url": "https://pump.fun/coin/FRmgvbbwQWbAYJxmSmokS6yfVwk7H6Uj1WcqdvMFpump"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/psyop_manga"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/psyop_manga"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/9sydbg3bmuvkoz7yzgya6ebafkumejght6erdzt9pump",
+    "chainId": "solana",
+    "tokenAddress": "9SyDBG3bmuVkoz7yZgYA6ebaFKUMeJGHt6ERdZt9pump",
+    "icon": "056a325e211b22c7d052f154bdec68e0fcf3018aaf1b3622fee9adde20af9682",
+    "header": "https://cdn.dexscreener.com/cms/images/15599bff0d4bec0e8d3cb793e8be6413728b71e1e1b04fd4414f7afb3ce43894?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/9SyDBG3bmuVkoz7yZgYA6ebaFKUMeJGHt6ERdZt9pump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011316717121671503"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/8x41exazha86vhnyovggfvtgzya9twmxg1bmlhyvpump",
+    "chainId": "solana",
+    "tokenAddress": "8x41eXaZhA86vHnyovggfvTGZYA9twmXG1BMLhyVpump",
+    "description": "Born from a viral 2013 internet moment when a random “Werewolf Name Generator” dubbed a user “Moon Moon,” the character became a...",
+    "icon": "f0ece2e17dab3dba64487d8036dd7a997def6565d20797ef8df5e40d61cf6cc7",
+    "header": "https://cdn.dexscreener.com/cms/images/895a1a5d64f449e46d8c712ccfff7d126de9fac6c442b711436331b03b852a47?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/8x41eXaZhA86vHnyovggfvTGZYA9twmXG1BMLhyVpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://moonmoontoken.com"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/MoonMoonMemeSOL"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/MoonMoonToken"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/8qkbfwgwmverqnkczrmxwse62sg3o5uu2vudvw6zpump",
+    "chainId": "solana",
+    "tokenAddress": "8QKbfWgwmVerQnKcZrmXwSe62sg3o5uU2vUdvW6zpump",
+    "description": "skizo world order",
+    "icon": "1b880a44da45e49875bdb24a2c28298e4205516c7a6fef0de86e36dcbef5be1e",
+    "header": "https://cdn.dexscreener.com/cms/images/ce73e9ce51eb3a1ec0b0ea7660eff9b6a7fb9a5f008451ab8eda4c02bb5b78f5?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/8QKbfWgwmVerQnKcZrmXwSe62sg3o5uU2vUdvW6zpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://skizo.net/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/skizoterminal"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/skizoterminal"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/4sdfm29fftmqdgkbhtthh9oyhdrcwpstqyvgj6etylsd",
+    "chainId": "solana",
+    "tokenAddress": "4SDfM29FFTmQDGKBHtThh9oYhdRcwPSTqYVgJ6EtyLSD",
+    "description": "LSD. The Staking Solution on Solana.",
+    "icon": "dd08571405a2ede672a2a202d102b994a873d2b4eeee9abbf1b49d59b99f0796",
+    "header": "https://cdn.dexscreener.com/cms/images/ecd76098ced567fe19f2bb039eb65d39b47f5b3532ce99f850c220ae2a57885c?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/4SDfM29FFTmQDGKBHtThh9oYhdRcwPSTqYVgJ6EtyLSD?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://lsd.tech/"
+      },
+      {
+        "url": "https://lsd-5.gitbook.io/lsd-docs/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/LSDdotTech"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/LSDdotTechonSol"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/9avytnukslxpxfhfqs6vlxaxt5p6bhynr53sd2chpump",
+    "chainId": "solana",
+    "tokenAddress": "9AvytnUKsLxPxFHFqS6VLxaxt5p6BhYNr53SD2Chpump",
+    "description": "67: #67to67Billion. A Meme. A Word. A Coin. A Decentralized Movement taking over the world.",
+    "icon": "cbdc4c6ea4ad0890cc51bd9d03d5e0f273edb5acdd92ce728244711999b5825d",
+    "header": "https://cdn.dexscreener.com/cms/images/0cd2627a5b9140ad959841e00192d0024138bb7f57a1f9b5bc5b658fa314cd7d?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/9AvytnUKsLxPxFHFqS6VLxaxt5p6BhYNr53SD2Chpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://www.67to67billion.com/"
+      },
+      {
+        "url": "https://www.youtube.com/@67to67Billion"
+      },
+      {
+        "url": "https://www.instagram.com/67to67billion"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/TheOfficial67Coin"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/67coinX"
+      },
+      {
+        "type": "tiktok",
+        "url": "https://www.tiktok.com/@67coin"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/9adkpraryf2xywzhqxzqz3gwv5b1rgqhtrofcg7npump",
+    "chainId": "solana",
+    "tokenAddress": "9adkPrArYF2xYWZhqXZqZ3GwV5b1RGqHTroFCg7Npump",
+    "description": "We rewrote history, knowyourmeme has changed the origin of DOGE from Shiba to Corgi.",
+    "icon": "c20edb8622e561c836a76491ef0354b2f0cac21a5ddf6a1c7fe88860ce230613",
+    "header": "https://cdn.dexscreener.com/cms/images/07f37d6c2479aa7633f53484f02982e23c9fcc414e2542533434f5cb5580510e?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/9adkPrArYF2xYWZhqXZqZ3GwV5b1RGqHTroFCg7Npump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://knowyourmeme.com/memes/doge"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011447688236331460"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/Corgicommunity_sol"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/bsc/0x99e595136ee912c0ad2717a39bb9fa40f82a4444",
+    "chainId": "bsc",
+    "tokenAddress": "0x99e595136EE912C0aD2717a39BB9fA40f82a4444",
+    "description": "不完美的表情，最真实的情绪。",
+    "icon": "3ad9e60b99c959d27c17ac24cce6245b1f14dc43986076e68e619c446e1069e0",
+    "header": "https://cdn.dexscreener.com/cms/images/9184625ea884f00efc57b172b84e5539a120f812b1d2b554ce4268ea4584b8fb?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/bsc/0x99e595136ee912c0ad2717a39bb9fa40f82a4444?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://kukuma.club"
+      },
+      {
+        "url": "https://github.com/Crying-Horse"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/kukumabnb"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/kukumatg"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/5w5nlkflfqcnfyfs1a7y9m63uvnu6b4tqk3mqfv9pump",
+    "chainId": "solana",
+    "tokenAddress": "5W5NLkfLfqcnfyFs1A7Y9m63uvnU6b4tQK3mqfV9pump",
+    "description": "Introducing VenezWHALEa ($VWHALE) – the ultimate meme coin that's part Venezuela, part massive crypto whale, and 100% chaotic energy!",
+    "icon": "748a34d4900c9737a01e99301eb08c81b3249db64e01739abbe9834ac261e4c0",
+    "header": "https://cdn.dexscreener.com/cms/images/20aa29f7e0709416ea587aa1080a32c33c97b9c5b92622a21774f71c1b2b29bf?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/5W5NLkfLfqcnfyFs1A7Y9m63uvnU6b4tQK3mqfV9pump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://venezwhalea.hodl.fyi/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/venezwhalea"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/VenezWHALEaSol"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/8syux5zuh6e79ghpysrn6zqnhqpbc6sxqr2xxyehpump",
+    "chainId": "solana",
+    "tokenAddress": "8syux5Zuh6e79GhPysRn6zQnHQPBC6sXqR2XxyeHpump",
+    "description": "Fuckcoin was born in 2014. Now it is reborn on Pumpfun with OG Website and X account.",
+    "icon": "47fadcd5a4e481bfd5685367d7921a2f15cf85539828d8bc6768d9317baba69d",
+    "header": "https://cdn.dexscreener.com/cms/images/f7635e7a01b4dba388a6dec0ef219e6e3bc2a0253fe4c0f0396277b0798c6910?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/8syux5Zuh6e79GhPysRn6zQnHQPBC6sXqR2XxyeHpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://www.fuckco.in"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/fuckcoin"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/frb19eyjfno8wdp621amha5d9b5y9mtvw4pwcwbbpump",
+    "chainId": "solana",
+    "tokenAddress": "Frb19EyJFno8Wdp621aMhA5d9b5y9mtVW4pWcwBbpump",
+    "description": "Every first of the month a new video of cows dancing goes viral on Tik Tok, getting 100m+ views to start off the month\n\nIt has gained so much popularity that people have begun saying it is not a trend, but rather a tradition\n\nWe are bringing this tradition to CT, by posting a video on the first of every month",
+    "icon": "5c30c9c364e28f71a659fabbd9dcce0ba6918945956a240f0ca2a19ff947f280",
+    "header": "https://cdn.dexscreener.com/cms/images/9403b0851c0fd1f03197ca73d819007f6b58b029790f92a982ce4f08bac2175c?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/Frb19EyJFno8Wdp621aMhA5d9b5y9mtVW4pWcwBbpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://www.tiktok.com/search?q=first%20of%20the%20month&t=1767146775339"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2006184600184205433"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/zuahhrvq9srxztmkwduzy4yod4uwed7od7tp8ekpump",
+    "chainId": "solana",
+    "tokenAddress": "ZUaHHRvQ9sRxZtmkwDuzY4YoD4Uwed7oD7Tp8eKpump",
+    "description": "The cult of whales.",
+    "icon": "fb599c17848e30d0932cf715bec4cc8f96157bf200e2863371e081b5246c7280",
+    "header": "https://cdn.dexscreener.com/cms/images/4dd75b5bcabb451fc69cb91bae97514334e8722aa27db75b98514d9567c14445?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/ZUaHHRvQ9sRxZtmkwDuzY4YoD4Uwed7oD7Tp8eKpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://whalecultcoin.com"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011553549411577951"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/eqkmc2f6fqse5wvzxkkexrnfbabohhvsrkf5xxjwpump",
+    "chainId": "solana",
+    "tokenAddress": "EqKmC2f6fQsE5WVzXKkExrnfBabohHvSrkf5xxjwpump",
+    "description": "MoonWhale is a conviction-driven meme project built for those who don’t chase candles they create them Born in the trenches and forged by community belief, MoonWhale represents the whales who hold through the noise, protect the floor, and send projects where they belong: to the moon",
+    "icon": "ec1c36bcb9826b342b537343640e8858179aed8357e9279b5a17805ba2e06d41",
+    "header": "https://cdn.dexscreener.com/cms/images/e1513c29572d20fb71a73bd091e8f5b09b398f4283404395afc0e908dcaf9bba?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/EqKmC2f6fQsE5WVzXKkExrnfBabohHvSrkf5xxjwpump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://mwhale.fun/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/Moonwhale_sol"
+      },
+      {
+        "type": "telegram",
+        "url": "https://t.me/moonwhalesol"
+      }
+    ],
+    "totalAmount": 100
+  },
+  {
+    "url": "https://dexscreener.com/solana/ey8gjs2xgxcgjxjanwzb7qcahftca7hwxfbnehr9pump",
+    "chainId": "solana",
+    "tokenAddress": "Ey8GJs2xgXcGJXjanwzB7qcaHftCa7HwxFBNEHR9pump",
+    "description": "Resonance of AI",
+    "icon": "e27b3514196d0f358c5250f90ce6fd513c42650bb0629083eb631d647366b95c",
+    "header": "https://cdn.dexscreener.com/cms/images/e96967222d12a79af1184df3d0ecb6b4b349b096dcd109604e161f23226bdd5d?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/Ey8GJs2xgXcGJXjanwzB7qcaHftCa7HwxFBNEHR9pump?timestamp=1768490100000",
+    "links": [
+      {
+        "url": "https://exchange.art/kenva/nfts"
+      },
+      {
+        "url": "http://aika-art.fun/"
+      },
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011020007493230603"
+      }
+    ],
+    "totalAmount": 90
+  },
+  {
+    "url": "https://dexscreener.com/solana/5rc5zzgfoqqkauafp3noyvfcmzchpnupn1l8uqkypump",
+    "chainId": "solana",
+    "tokenAddress": "5RC5ZzGfoqQkAUaFP3noyVfCmzchPNuPN1L8UqKYpump",
+    "description": "This is the next 100x memecoin!",
+    "icon": "85e85358b61708038265b0fa5246800a30930815a5d83b6f0c20022a090154a8",
+    "header": "https://cdn.dexscreener.com/cms/images/d6e9d17c383b0b0fdfbd0b72970ee62493af05df49097894310d8f55b8ee41de?width=900&height=300&fit=crop&quality=95&format=auto",
+    "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/5RC5ZzGfoqQkAUaFP3noyVfCmzchPNuPN1L8UqKYpump?timestamp=1768490100000",
+    "links": [
+      {
+        "type": "twitter",
+        "url": "https://x.com/i/communities/2011715398446506175"
+      }
+    ],
+    "totalAmount": 60
+  }
+]

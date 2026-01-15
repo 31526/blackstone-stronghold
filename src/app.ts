@@ -4,6 +4,7 @@ import connectDB from '@/config/database';
 import coinmarketcapRoutes from '@/routes/coinmarketcap.routes';
 import etherscanRoutes from '@/routes/etherscan';
 import binanceRoutes from '@/routes/binance';
+import dexscreenerRoutes from '@/routes/dexscreener';
 
 // 加载环境变量
 dotenv.config();
@@ -28,6 +29,9 @@ app.use('/etherscan', etherscanRoutes);
 
 // Binance 路由
 app.use('/binance', binanceRoutes);
+
+// DexScreener 路由
+app.use('/dexscreener', dexscreenerRoutes);
 
 // 启动服务器
 const startServer = async () => {

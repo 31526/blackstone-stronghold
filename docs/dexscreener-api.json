@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "dexscreener-api-collection",
+    "name": "DexScreener API",
+    "description": "DexScreener REST API 接口文档\n\nBase URL: https://api.dexscreener.com\n\n## 接口概览\n\n### Token Profiles\n- GET /token-profiles/latest/v1 - 获取最新的代币配置文件\n\n### Token Boosts\n- GET /token-boosts/latest/v1 - 获取最新的代币加速\n- GET /token-boosts/top/v1 - 获取热门代币加速\n\n### Orders\n- GET /orders/v1/{chainId}/{tokenAddress} - 获取代币的订单/加速信息\n\n### DEX Pairs\n- GET /latest/dex/pairs/{chainId}/{pairAddress} - 根据链ID和交易对地址获取交易对\n- GET /latest/dex/tokens/{tokenAddresses} - 根据代币地址获取交易对\n- GET /latest/dex/search - 搜索交易对\n\n## 速率限制\n- 免费 API: 300 requests/minute",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.dexscreener.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Token Profiles",
+      "description": "代币配置文件相关接口",
+      "item": [
+        {
+          "name": "获取最新代币配置文件",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/token-profiles/latest/v1",
+              "host": ["{{baseUrl}}"],
+              "path": ["token-profiles", "latest", "v1"]
+            },
+            "description": "获取最新更新的代币配置文件列表\n\n返回包含代币的基本信息、图标、描述、社交链接等"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/token-profiles/latest/v1"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "[\n  {\n    \"url\": \"https://dexscreener.com/solana/xxx\",\n    \"chainId\": \"solana\",\n    \"tokenAddress\": \"xxx\",\n    \"icon\": \"https://...\",\n    \"header\": \"https://...\",\n    \"openGraph\": \"https://...\",\n    \"description\": \"Token description\",\n    \"links\": [\n      {\n        \"label\": \"Website\",\n        \"url\": \"https://...\"\n      },\n      {\n        \"type\": \"twitter\",\n        \"url\": \"https://x.com/...\"\n      }\n    ],\n    \"cto\": false\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Token Boosts",
+      "description": "代币加速相关接口",
+      "item": [
+        {
+          "name": "获取最新代币加速",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/token-boosts/latest/v1",
+              "host": ["{{baseUrl}}"],
+              "path": ["token-boosts", "latest", "v1"]
+            },
+            "description": "获取最新的代币加速列表"
+          },
+          "response": []
+        },
+        {
+          "name": "获取热门代币加速",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/token-boosts/top/v1",
+              "host": ["{{baseUrl}}"],
+              "path": ["token-boosts", "top", "v1"]
+            },
+            "description": "获取加速量最高的代币列表\n\n返回包含代币地址、描述、图标、链接和总加速数量"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/token-boosts/top/v1"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "[\n  {\n    \"url\": \"https://dexscreener.com/solana/xxx\",\n    \"chainId\": \"solana\",\n    \"tokenAddress\": \"xxx\",\n    \"description\": \"Token description\",\n    \"icon\": \"xxx\",\n    \"header\": \"https://...\",\n    \"openGraph\": \"https://...\",\n    \"links\": [],\n    \"totalAmount\": 1000\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "description": "代币订单/加速状态相关接口",
+      "item": [
+        {
+          "name": "获取代币订单状态",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/v1/:chainId/:tokenAddress",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "v1", ":chainId", ":tokenAddress"],
+              "variable": [
+                {
+                  "key": "chainId",
+                  "value": "solana",
+                  "description": "链 ID (如: solana, ethereum, bsc 等)"
+                },
+                {
+                  "key": "tokenAddress",
+                  "value": "So11111111111111111111111111111111111111112",
+                  "description": "代币合约地址"
+                }
+              ]
+            },
+            "description": "获取指定代币的订单和加速状态\n\n## 路径参数\n- chainId: 区块链 ID (ethereum, solana, bsc, polygon 等)\n- tokenAddress: 代币合约地址\n\n## 返回数据\n- orders: 订单列表 (包含 tokenProfile, tokenAd, communityTakeover 等类型)\n- boosts: 加速列表"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/orders/v1/solana/So11111111111111111111111111111111111111112"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"orders\": [\n    {\n      \"chainId\": \"solana\",\n      \"tokenAddress\": \"xxx\",\n      \"type\": \"tokenProfile\",\n      \"status\": \"approved\",\n      \"paymentTimestamp\": 1734108738379\n    }\n  ],\n  \"boosts\": [\n    {\n      \"chainId\": \"solana\",\n      \"tokenAddress\": \"xxx\",\n      \"id\": \"xxx\",\n      \"amount\": 10,\n      \"paymentTimestamp\": 1763531526741\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DEX Pairs",
+      "description": "DEX 交易对相关接口",
+      "item": [
+        {
+          "name": "根据交易对地址获取交易对",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/latest/dex/pairs/:chainId/:pairAddresses",
+              "host": ["{{baseUrl}}"],
+              "path": ["latest", "dex", "pairs", ":chainId", ":pairAddresses"],
+              "variable": [
+                {
+                  "key": "chainId",
+                  "value": "ethereum",
+                  "description": "链 ID"
+                },
+                {
+                  "key": "pairAddresses",
+                  "value": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+                  "description": "交易对地址 (可用逗号分隔多个，最多30个)"
+                }
+              ]
+            },
+            "description": "根据链ID和交易对地址获取交易对详情\n\n## 路径参数\n- chainId: 区块链 ID\n- pairAddresses: 交易对合约地址 (支持逗号分隔的多个地址，最多30个)\n\n## 支持的链\n- ethereum, bsc, polygon, arbitrum, optimism, base, solana, avalanche 等"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/latest/dex/pairs/ethereum/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"pairs\": [\n    {\n      \"chainId\": \"ethereum\",\n      \"dexId\": \"uniswap\",\n      \"url\": \"https://dexscreener.com/ethereum/0x...\",\n      \"pairAddress\": \"0x...\",\n      \"labels\": [\"v3\"],\n      \"baseToken\": {\n        \"address\": \"0x...\",\n        \"name\": \"Wrapped Ether\",\n        \"symbol\": \"WETH\"\n      },\n      \"quoteToken\": {\n        \"address\": \"0x...\",\n        \"name\": \"USD Coin\",\n        \"symbol\": \"USDC\"\n      },\n      \"priceNative\": \"3344.65\",\n      \"priceUsd\": \"3344.65\",\n      \"txns\": {\n        \"m5\": { \"buys\": 11, \"sells\": 11 },\n        \"h1\": { \"buys\": 188, \"sells\": 166 },\n        \"h6\": { \"buys\": 1116, \"sells\": 757 },\n        \"h24\": { \"buys\": 2804, \"sells\": 2692 }\n      },\n      \"volume\": {\n        \"h24\": 54059831.8,\n        \"h6\": 17681926.11,\n        \"h1\": 7492224.61,\n        \"m5\": 262462.22\n      },\n      \"priceChange\": {\n        \"m5\": -0.09,\n        \"h1\": -0.85,\n        \"h6\": 0.27,\n        \"h24\": 0.12\n      },\n      \"liquidity\": {\n        \"usd\": 76547505.92,\n        \"base\": 5694.2469,\n        \"quote\": 57502226\n      },\n      \"fdv\": 8352266998,\n      \"marketCap\": 8500955408,\n      \"pairCreatedAt\": 1620250931000,\n      \"info\": {\n        \"imageUrl\": \"https://...\",\n        \"openGraph\": \"https://...\",\n        \"websites\": [],\n        \"socials\": []\n      }\n    }\n  ],\n  \"pair\": { ... }\n}"
+            }
+          ]
+        },
+        {
+          "name": "根据代币地址获取交易对",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/latest/dex/tokens/:tokenAddresses",
+              "host": ["{{baseUrl}}"],
+              "path": ["latest", "dex", "tokens", ":tokenAddresses"],
+              "variable": [
+                {
+                  "key": "tokenAddresses",
+                  "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                  "description": "代币地址 (可用逗号分隔多个，最多30个)"
+                }
+              ]
+            },
+            "description": "根据代币合约地址获取所有相关交易对\n\n## 路径参数\n- tokenAddresses: 代币合约地址 (支持逗号分隔的多个地址，最多30个)\n\n## 说明\n跨链搜索，会返回所有链上的相关交易对"
+          },
+          "response": []
+        },
+        {
+          "name": "搜索交易对",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/latest/dex/search?q=WETH",
+              "host": ["{{baseUrl}}"],
+              "path": ["latest", "dex", "search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "WETH",
+                  "description": "搜索关键词 (代币名称、符号或地址)"
+                }
+              ]
+            },
+            "description": "搜索交易对\n\n## 查询参数\n- q: 搜索关键词，可以是代币名称、符号或合约地址\n\n## 说明\n全链搜索，返回匹配的交易对列表"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
