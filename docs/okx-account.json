@@ -1,0 +1,671 @@
+{
+  "info": {
+    "_postman_id": "okx-account-api-v5",
+    "name": "OKX Account API",
+    "description": "OKX 交易账户 REST API v5\n\n包含账户余额、持仓信息、账单流水、账户配置等接口。\n\n所有接口都需要进行签名认证。\n\n签名方式: HMAC SHA256 + Base64\n\n请求头:\n- OK-ACCESS-KEY: API Key\n- OK-ACCESS-SIGN: 签名 (Base64编码的HMAC SHA256)\n- OK-ACCESS-TIMESTAMP: UTC时间戳 (ISO格式)\n- OK-ACCESS-PASSPHRASE: API密码",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.okx.com",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "secretKey",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "passphrase",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "查看账户余额",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/balance?ccy=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "balance"],
+          "query": [
+            {
+              "key": "ccy",
+              "value": "",
+              "description": "币种，如 BTC。支持多币种查询（不超过20个），币种之间半角逗号分隔"
+            }
+          ]
+        },
+        "description": "获取交易账户中资金余额信息。\n\n限速：10次/2s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "查看持仓信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/positions?instType=&instId=&posId=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "positions"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "",
+              "description": "产品类型: MARGIN, SWAP, FUTURES, OPTION"
+            },
+            {
+              "key": "instId",
+              "value": "",
+              "description": "产品ID，如 BTC-USDT-SWAP"
+            },
+            {
+              "key": "posId",
+              "value": "",
+              "description": "持仓ID"
+            }
+          ]
+        },
+        "description": "获取该账户下拥有实际持仓的信息。账户为买卖模式会显示net持仓，账户为开平仓模式下会分别返回开多与开空的仓位。\n\n限速：10次/2s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "查看历史持仓信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/positions-history?instType=&instId=&mgnMode=&type=&posId=&after=&before=&limit=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "positions-history"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "",
+              "description": "产品类型: MARGIN, SWAP, FUTURES, OPTION"
+            },
+            {
+              "key": "instId",
+              "value": "",
+              "description": "产品ID，如 BTC-USDT-SWAP"
+            },
+            {
+              "key": "mgnMode",
+              "value": "",
+              "description": "保证金模式: cross, isolated"
+            },
+            {
+              "key": "type",
+              "value": "",
+              "description": "平仓类型: 1-部分平仓 2-完全平仓 3-强平 4-强减 5-ADL自动减仓"
+            },
+            {
+              "key": "posId",
+              "value": "",
+              "description": "持仓ID"
+            },
+            {
+              "key": "after",
+              "value": "",
+              "description": "请求此时间戳之前的数据（毫秒）"
+            },
+            {
+              "key": "before",
+              "value": "",
+              "description": "请求此时间戳之后的数据（毫秒）"
+            },
+            {
+              "key": "limit",
+              "value": "",
+              "description": "返回结果的数量，最大为100，默认100"
+            }
+          ]
+        },
+        "description": "获取最近3个月有更新的历史仓位信息。\n\n限速：1次/10s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "查看账户持仓风险",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/account-position-risk?instType=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "account-position-risk"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "",
+              "description": "产品类型: MARGIN, SWAP, FUTURES, OPTION"
+            }
+          ]
+        },
+        "description": "获取同一时间切片账户和持仓的基础信息。\n\n限速：10次/2s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "账单流水查询（近七天）",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/bills?instType=&ccy=&mgnMode=&ctType=&type=&subType=&after=&before=&begin=&end=&limit=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "bills"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "",
+              "description": "产品类型: SPOT, MARGIN, SWAP, FUTURES, OPTION"
+            },
+            {
+              "key": "ccy",
+              "value": "",
+              "description": "币种"
+            },
+            {
+              "key": "mgnMode",
+              "value": "",
+              "description": "保证金模式: isolated, cross"
+            },
+            {
+              "key": "ctType",
+              "value": "",
+              "description": "合约类型: linear, inverse"
+            },
+            {
+              "key": "type",
+              "value": "",
+              "description": "账单类型"
+            },
+            {
+              "key": "subType",
+              "value": "",
+              "description": "账单子类型"
+            },
+            {
+              "key": "after",
+              "value": "",
+              "description": "请求此ID之前的数据"
+            },
+            {
+              "key": "before",
+              "value": "",
+              "description": "请求此ID之后的数据"
+            },
+            {
+              "key": "begin",
+              "value": "",
+              "description": "筛选的开始时间戳（毫秒）"
+            },
+            {
+              "key": "end",
+              "value": "",
+              "description": "筛选的结束时间戳（毫秒）"
+            },
+            {
+              "key": "limit",
+              "value": "",
+              "description": "返回结果的数量，最大为100，默认100"
+            }
+          ]
+        },
+        "description": "账户资产流水查询，最近7天的账单数据。\n\n限速：5次/s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "账单流水查询（近三个月）",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/bills-archive?instType=&ccy=&mgnMode=&ctType=&type=&subType=&after=&before=&begin=&end=&limit=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "bills-archive"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "",
+              "description": "产品类型: SPOT, MARGIN, SWAP, FUTURES, OPTION"
+            },
+            {
+              "key": "ccy",
+              "value": "",
+              "description": "币种"
+            },
+            {
+              "key": "mgnMode",
+              "value": "",
+              "description": "保证金模式: isolated, cross"
+            },
+            {
+              "key": "ctType",
+              "value": "",
+              "description": "合约类型: linear, inverse"
+            },
+            {
+              "key": "type",
+              "value": "",
+              "description": "账单类型"
+            },
+            {
+              "key": "subType",
+              "value": "",
+              "description": "账单子类型"
+            },
+            {
+              "key": "after",
+              "value": "",
+              "description": "请求此ID之前的数据"
+            },
+            {
+              "key": "before",
+              "value": "",
+              "description": "请求此ID之后的数据"
+            },
+            {
+              "key": "begin",
+              "value": "",
+              "description": "筛选的开始时间戳（毫秒）"
+            },
+            {
+              "key": "end",
+              "value": "",
+              "description": "筛选的结束时间戳（毫秒）"
+            },
+            {
+              "key": "limit",
+              "value": "",
+              "description": "返回结果的数量，最大为100，默认100"
+            }
+          ]
+        },
+        "description": "账户资产流水查询，最近3个月的账单数据。\n\n限速：5次/2s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "申请账单流水（自2021年）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": \"2024\",\n  \"quarter\": \"Q1\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/bills-history-archive",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "bills-history-archive"]
+        },
+        "description": "申请自2021年开始的历史账单流水。\n\n限速：1次/5s\n\n限速规则：UserID\n\n请求参数:\n- year: 年份 (必填)\n- quarter: 季度 Q1/Q2/Q3/Q4 (必填)"
+      },
+      "response": []
+    },
+    {
+      "name": "获取账单流水（自2021年）",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/bills-history-archive?year=&quarter=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "bills-history-archive"],
+          "query": [
+            {
+              "key": "year",
+              "value": "",
+              "description": "年份 (必填)"
+            },
+            {
+              "key": "quarter",
+              "value": "",
+              "description": "季度: Q1, Q2, Q3, Q4 (必填)"
+            }
+          ]
+        },
+        "description": "获取自2021年开始的历史账单流水下载链接。\n\n限速：1次/5s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "查看账户配置",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/config",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "config"]
+        },
+        "description": "查看当前账户的配置信息。\n\n限速：5次/2s\n\n限速规则：UserID"
+      },
+      "response": []
+    },
+    {
+      "name": "设置手续费计价方式",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "OK-ACCESS-KEY",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-SIGN",
+            "value": "{{sign}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-TIMESTAMP",
+            "value": "{{timestamp}}",
+            "type": "text"
+          },
+          {
+            "key": "OK-ACCESS-PASSPHRASE",
+            "value": "{{passphrase}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"feeType\": \"0\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/account/set-fee-type",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "account", "set-fee-type"]
+        },
+        "description": "设置手续费计价方式。\n\n限速：5次/2s\n\n限速规则：UserID\n\n请求参数:\n- feeType: 手续费计价方式 0-USDT计价 1-按照交易币种进行手续费计价"
+      },
+      "response": []
+    },
+    {
+      "name": "获取交易产品基础信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v5/public/instruments?instType=SPOT&instId=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v5", "public", "instruments"],
+          "query": [
+            {
+              "key": "instType",
+              "value": "SPOT",
+              "description": "产品类型: SPOT, MARGIN, SWAP, FUTURES, OPTION (必填)"
+            },
+            {
+              "key": "instId",
+              "value": "",
+              "description": "产品ID，如 BTC-USDT"
+            }
+          ]
+        },
+        "description": "获取交易产品基础信息（公共接口，无需认证）。\n\n限速：20次/2s\n\n限速规则：IP + 产品类型"
+      },
+      "response": []
+    }
+  ]
+}

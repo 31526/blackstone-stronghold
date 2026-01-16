@@ -1,0 +1,102 @@
+{
+  "code": "0",
+  "msg": "",
+  "data": [
+    {
+      "details": [
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist several perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-delist-several-perpetual-futures-20250610",
+          "pTime": "1749538803465",
+          "businessPTime": "1749538800000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist several spot trading pairs",
+          "url": "https://www.okx.com/help/okx-to-delist-several-spot-trading-pairs-25-7",
+          "pTime": "1721703602314",
+          "businessPTime": "1721703600000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX HK to delist stablecoin and crypto trading pairs and introduce HKD pairs soon",
+          "url": "https://www.okx.com/help/okx-hk-to-delist-stablecoin-and-crypto-trading-pairs",
+          "pTime": "1716202876503",
+          "businessPTime": "1716202800000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX HK to delist AXS, LTC and SAND and their associated trading pairs",
+          "url": "https://www.okx.com/help/okx-hk-to-delist-axs-ltc-and-sand-and-their-associated-trading-pairs",
+          "pTime": "1709289234467",
+          "businessPTime": "1709582400000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX HK to suspend the deposit of 5 tokens and delist their associated pairs for wallet upgrade",
+          "url": "https://www.okx.com/help/okx-hk-to-suspend-the-deposit-of-5-tokens-and-delist-for-wallet-upgrade",
+          "pTime": "1708999215325",
+          "businessPTime": "1708999200000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist YFII spot trading pairs ",
+          "url": "https://www.okx.com/help/okx-to-delist-yfii-spot-trading-pairs",
+          "pTime": "1708588802171",
+          "businessPTime": "1708588800000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to postpone delisting of WSM margin trading pair and perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-postpone-delisting-of-wsm-margin-trading-pair-and-perpetual-futures",
+          "pTime": "1707127202856",
+          "businessPTime": "1707127200000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist several margin trading pairs and perpetual swaps",
+          "url": "https://www.okx.com/help/okx-to-delist-several-margin-trading-pairs-and-perpetual-swaps",
+          "pTime": "1706871238282",
+          "businessPTime": "1706868000000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist WAVES spot trading pairs ",
+          "url": "https://www.okx.com/help/okx-to-delist-waves-spot-trading-pairs",
+          "pTime": "1706860803164",
+          "businessPTime": "1706860800000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist WSM margin trading pairs and perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-delist-wsm-margin-trading-pairs-and-perpetual-futures",
+          "pTime": "1706601602794",
+          "businessPTime": "1706601600000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist WAVES margin trading pairs and perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-delist-waves-margin-trading-pairs-and-perpetual-swaps",
+          "pTime": "1706176802884",
+          "businessPTime": "1706176800000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist WGRT, KONO, and WSB spot trading pairs ",
+          "url": "https://www.okx.com/help/okx-to-delist-wgrt-kono-and-wsb-spot-trading-pairs",
+          "pTime": "1706169602682",
+          "businessPTime": "1706169600000"
+        },
+        {
+          "annType": "announcements-delistings",
+          "title": "OKX to delist DOME and FAME spot trading pairs ",
+          "url": "https://www.okx.com/help/okx-to-delist-dome-and-fame-spot-trading-pairs",
+          "pTime": "1704441602907",
+          "businessPTime": "1704441600000"
+        }
+      ],
+      "totalPage": "1"
+    }
+  ]
+}

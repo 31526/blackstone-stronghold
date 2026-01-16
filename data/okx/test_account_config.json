@@ -1,0 +1,40 @@
+{
+  "code": "0",
+  "data": [
+    {
+      "acctLv": "2",
+      "acctStpMode": "cancel_maker",
+      "autoLoan": false,
+      "ctIsoMode": "automatic",
+      "enableSpotBorrow": false,
+      "feeType": "0",
+      "greeksType": "PA",
+      "ip": "",
+      "kycLv": "3",
+      "label": "ClaudeCodeReadOnlyHao123123-",
+      "level": "Lv1",
+      "levelTmp": "",
+      "liquidationGear": "-1",
+      "mainUid": "24117113237155840",
+      "mgnIsoMode": "auto_transfers_ccy",
+      "opAuth": "0",
+      "perm": "read_only",
+      "posMode": "long_short_mode",
+      "roleType": "0",
+      "settleCcy": "USDC",
+      "settleCcyList": [
+        "USDC",
+        "USDG"
+      ],
+      "spotBorrowAutoRepay": false,
+      "spotOffsetType": "",
+      "spotRoleType": "0",
+      "spotTraderInsts": [],
+      "stgyType": "0",
+      "traderInsts": [],
+      "type": "0",
+      "uid": "24117113237155840"
+    }
+  ],
+  "msg": ""
+}

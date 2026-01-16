@@ -1,0 +1,341 @@
+{
+  "info": {
+    "_postman_id": "okx-trading-data-api-v5",
+    "name": "OKX Trading Statistics API V5",
+    "description": "OKX 交易大数据 REST API 文档\n\n## 基础信息\n- 基础URL: https://www.okx.com\n- 所有接口返回 JSON 格式\n- 时间戳单位为毫秒\n\n## 响应格式\n```json\n{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [...]\n}\n```\n\n## 时间周期参数 (period)\n- 5m: 5分钟\n- 1H: 1小时\n- 1D: 1天\n- 8H: 8小时 (部分期权接口)\n\n## 错误码\n- 0: 成功\n- 51000: 参数错误\n- 50001: 系统繁忙\n- 50004: API endpoint请求超时\n- 50011: 请求频率过高",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.okx.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Trading Statistics - 交易大数据",
+      "description": "交易大数据相关接口，无需签名认证",
+      "item": [
+        {
+          "name": "获取交易大数据支持币种",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/trading-data/support-coin",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "trading-data", "support-coin"]
+            },
+            "description": "获取交易大数据支持的币种列表\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n无\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| contract | array | 合约支持币种列表 |\n| option | array | 期权支持币种列表 |\n| spot | array | 现货支持币种列表 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"data\": {\n    \"contract\": [\"BTC\", \"ETH\", \"SOL\"],\n    \"option\": [\"BTC\", \"ETH\"],\n    \"spot\": [\"BTC\", \"ETH\"]\n  },\n  \"msg\": \"\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取合约持仓量历史",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/contracts/open-interest-history?instId=BTC-USD-SWAP&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "contracts", "open-interest-history"],
+              "query": [
+                {
+                  "key": "instId",
+                  "value": "BTC-USD-SWAP",
+                  "description": "产品ID (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取合约持仓量历史数据\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| instId | string | 是 | 产品ID，如 BTC-USD-SWAP |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 持仓量(张) |\n| 2 | 持仓量(币) |\n| 3 | 持仓量(USD) |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取主动买入/卖出情况",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/taker-volume?ccy=BTC&instType=SPOT&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "taker-volume"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "instType",
+                  "value": "SPOT",
+                  "description": "产品类型 (必填: SPOT)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取主动买入/卖出情况\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| instType | string | 是 | 产品类型 (SPOT) |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 主动卖出量 |\n| 2 | 主动买入量 |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取合约主动买入/卖出情况",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/taker-volume-contract?instId=BTC-USD-SWAP&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "taker-volume-contract"],
+              "query": [
+                {
+                  "key": "instId",
+                  "value": "BTC-USD-SWAP",
+                  "description": "产品ID (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取合约主动买入/卖出情况\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| instId | string | 是 | 产品ID，如 BTC-USD-SWAP |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 主动卖出量(张) |\n| 2 | 主动买入量(张) |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取杠杆多空比",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/margin/loan-ratio?ccy=BTC&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "margin", "loan-ratio"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取杠杆多空比\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 杠杆多空比 |"
+          },
+          "response": []
+        },
+        {
+          "name": "看涨/看跌期权持仓量比/交易量比",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/option/open-interest-volume-ratio?ccy=BTC&period=8H",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "option", "open-interest-volume-ratio"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "8H",
+                  "description": "时间周期 (8H/1D，默认8H)"
+                }
+              ]
+            },
+            "description": "获取看涨/看跌期权合约持仓总量比/交易总量比\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (8H/1D)，默认8H |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 持仓量比 (看跌/看涨) |\n| 2 | 交易量比 (看跌/看涨) |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取合约多空持仓人数比",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/contracts/long-short-account-ratio?ccy=BTC&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "contracts", "long-short-account-ratio"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取合约多空持仓人数比\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 多空人数比 |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取合约持仓量及交易量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/contracts/open-interest-volume?ccy=BTC&period=5m",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "contracts", "open-interest-volume"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "5m",
+                  "description": "时间周期 (5m/1H/1D，默认5m)"
+                }
+              ]
+            },
+            "description": "获取合约持仓量及交易量\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (5m/1H/1D)，默认5m |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 持仓量(USD) |\n| 2 | 交易量(USD) |"
+          },
+          "response": []
+        },
+        {
+          "name": "获取期权持仓量及交易量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/option/open-interest-volume?ccy=BTC&period=8H",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "option", "open-interest-volume"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "8H",
+                  "description": "时间周期 (8H/1D，默认8H)"
+                }
+              ]
+            },
+            "description": "获取期权持仓量及交易量\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (8H/1D)，默认8H |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 持仓量(币) |\n| 2 | 交易量(币) |"
+          },
+          "response": []
+        },
+        {
+          "name": "看涨看跌持仓量及交易量（按到期日分）",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/option/open-interest-volume-expiry?ccy=BTC&period=8H",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "option", "open-interest-volume-expiry"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "8H",
+                  "description": "时间周期 (8H/1D，默认8H)"
+                }
+              ]
+            },
+            "description": "获取看涨看跌持仓总量及交易总量（按到期日分）\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (8H/1D)，默认8H |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 到期日 (YYYYMMDD) |\n| 2 | 看涨期权持仓量 |\n| 3 | 看跌期权持仓量 |\n| 4 | 看涨期权交易量 |\n| 5 | 看跌期权交易量 |"
+          },
+          "response": []
+        },
+        {
+          "name": "看涨看跌持仓量及交易量（按执行价格分）",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/option/open-interest-volume-strike?ccy=BTC&expTime=20260117",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "option", "open-interest-volume-strike"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "expTime",
+                  "value": "20260117",
+                  "description": "到期日 (必填，格式YYYYMMDD)"
+                },
+                {
+                  "key": "period",
+                  "value": "8H",
+                  "description": "时间周期 (8H/1D，默认8H)"
+                }
+              ]
+            },
+            "description": "获取看涨看跌持仓总量及交易总量（按执行价格分）\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| expTime | string | 是 | 到期日 (格式YYYYMMDD) |\n| period | string | 否 | 时间周期 (8H/1D)，默认8H |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 执行价格 |\n| 2 | 看涨期权持仓量 |\n| 3 | 看跌期权持仓量 |\n| 4 | 看涨期权交易量 |\n| 5 | 看跌期权交易量 |"
+          },
+          "response": []
+        },
+        {
+          "name": "看跌/看涨期权主动买入/卖出量",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/rubik/stat/option/taker-block-volume?ccy=BTC&period=8H",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "rubik", "stat", "option", "taker-block-volume"],
+              "query": [
+                {
+                  "key": "ccy",
+                  "value": "BTC",
+                  "description": "币种 (必填)"
+                },
+                {
+                  "key": "period",
+                  "value": "8H",
+                  "description": "时间周期 (8H/1D，默认8H)"
+                }
+              ]
+            },
+            "description": "获取看跌/看涨期权合约主动买入/卖出量\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| ccy | string | 是 | 币种，如 BTC |\n| period | string | 否 | 时间周期 (8H/1D)，默认8H |\n\n## 响应字段 (数组格式)\n| 索引 | 说明 |\n|------|------|\n| 0 | 时间戳 |\n| 1 | 看涨主动卖出量 |\n| 2 | 看涨主动买入量 |\n| 3 | 看跌主动卖出量 |\n| 4 | 看跌主动买入量 |\n| 5 | 看涨大宗交易量 |\n| 6 | 看跌大宗交易量 |"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

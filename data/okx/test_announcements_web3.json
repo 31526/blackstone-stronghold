@@ -1,0 +1,151 @@
+{
+  "code": "0",
+  "msg": "",
+  "data": [
+    {
+      "details": [
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Web3 announcement about X Layer support on Uniswap",
+          "url": "https://www.okx.com/help/okx-web3-announcement-about-x-layer-support-on-uniswap",
+          "pTime": "1768525294013",
+          "businessPTime": "1768492800000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet announcement on the Cardano network upgrade",
+          "url": "https://www.okx.com/help/okx-wallet-announcement-on-the-cardano-network-upgrade",
+          "pTime": "1767757424273",
+          "businessPTime": "1767715200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet now supports the aggregated display of ETH",
+          "url": "https://www.okx.com/help/okx-wallet-eth",
+          "pTime": "1766549651305",
+          "businessPTime": "1766505600000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet now supports gas-free transfers for stablecoins on X Layer",
+          "url": "https://www.okx.com/help/okx-wallet-x-layer-0-gas",
+          "pTime": "1765962634687",
+          "businessPTime": "1765900800000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet Announcement: OKX Boost Ranking Rules Update",
+          "url": "https://www.okx.com/help/okx-wallet-annoucement-okx-boosts-ranking-rules-upgrade",
+          "pTime": "1765538109540",
+          "businessPTime": "1765540800000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet’s announcement on the maintenance of Soneium network services",
+          "url": "https://www.okx.com/help/okx-wallet-soneium",
+          "pTime": "1764749979683",
+          "businessPTime": "1764691200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "Completion of X Layer Mainnet Upgrade",
+          "url": "https://www.okx.com/help/completion-of-x-layer-mainnet-upgrade",
+          "pTime": "1761582756071",
+          "businessPTime": "1761580800000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "X Layer Mainnet Upgrade Has Commenced",
+          "url": "https://www.okx.com/help/x-layer-mainnet-upgrade-has-commenced",
+          "pTime": "1761578221263",
+          "businessPTime": "1761579000000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "Announcement on X Layer Mainnet Technical Upgrade",
+          "url": "https://www.okx.com/help/announcement-on-x-layer-mainnet-technical-upgrade",
+          "pTime": "1761300116205",
+          "businessPTime": "1761235200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet announcement on TON maintenance",
+          "url": "https://www.okx.com/help/okx-wallet-ton",
+          "pTime": "1760699195667",
+          "businessPTime": "1760630400000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet Announcement: USDG Rewards Program",
+          "url": "https://www.okx.com/help/okx-wallet-usdg",
+          "pTime": "1760684868290",
+          "businessPTime": "1760630400000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Web3’s announcement on the OKT staking rewards",
+          "url": "https://www.okx.com/help/okx-web3-okt-liquid-staking",
+          "pTime": "1758101561458",
+          "businessPTime": "1758038400000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "Announcement: OKX Wallet to cease support for the Kroma network",
+          "url": "https://www.okx.com/help/announcement-okx-wallet-to-cease-support-for-the-kroma-network",
+          "pTime": "1757664528819",
+          "businessPTime": "1757606400000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet's announcement on pausing the Telegram Mini wallet service",
+          "url": "https://www.okx.com/help/okx-wallets-announcement-on-pausing-the-telegram-mini-wallet-service",
+          "pTime": "1757643805654",
+          "businessPTime": "1757644200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet’s announcement on the Polygon network maintenance",
+          "url": "https://www.okx.com/help/okx-wallet-polygon-network-announcement",
+          "pTime": "1757489984211",
+          "businessPTime": "1757433600000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet to discontinue support for USDT (Omni Protocol) ",
+          "url": "https://www.okx.com/help/okx-wallet-omni-usdt",
+          "pTime": "1756974687259",
+          "businessPTime": "1756915200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Web3’s announcement on the OKT staking rewards",
+          "url": "https://www.okx.com/help/okx-web3s-announcement-on-the-okt-staking-rewards",
+          "pTime": "1756968070981",
+          "businessPTime": "1756915200000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet announcement for inscription asset pricing upgrade",
+          "url": "https://www.okx.com/help/okx-wallet-announcement-for-inscription-asset-pricing-upgrade",
+          "pTime": "1756810599466",
+          "businessPTime": "1756742400000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "OKX Wallet’s announcement on the maintenance of Fractal Bitcoin network services",
+          "url": "https://www.okx.com/help/okx-wallets-announcement-on-the-maintenance-of-fractal-bitcoin-network",
+          "pTime": "1756294195237",
+          "businessPTime": "1756224000000"
+        },
+        {
+          "annType": "announcements-web3",
+          "title": "Announcement: OKX Wallet to cease support for the EthereumFair network",
+          "url": "https://www.okx.com/help/okx-wallet-ethereumfair",
+          "pTime": "1756205999316",
+          "businessPTime": "1756137600000"
+        }
+      ],
+      "totalPage": "9"
+    }
+  ]
+}

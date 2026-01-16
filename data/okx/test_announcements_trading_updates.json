@@ -1,0 +1,151 @@
+{
+  "code": "0",
+  "msg": "",
+  "data": [
+    {
+      "details": [
+        {
+          "annType": "announcements-trading-updates",
+          "title": "Advance Notice: Updates to Fee Grouping Adjustment",
+          "url": "https://www.okx.com/help/updates-to-fee-grouping",
+          "pTime": "1767152825246",
+          "businessPTime": "1767150000000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to enable automatic adjustment of several trading parameters",
+          "url": "https://www.okx.com/help/okx-to-enable-automatic-adjustment-of-several-trading-parameters",
+          "pTime": "1766460182152",
+          "businessPTime": "1766460300000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust ELP taker eligibility",
+          "url": "https://www.okx.com/help/okx-to-adjust-elp-taker-eligibility",
+          "pTime": "1766390411368",
+          "businessPTime": "1766390400000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251222",
+          "pTime": "1766385105495",
+          "businessPTime": "1766385300000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "Zero-Fee Promotion Ending for USDT-USDⓈ ",
+          "url": "https://www.okx.com/help/zero-fee-pairs-changes",
+          "pTime": "1765856342263",
+          "businessPTime": "1765357200000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251209",
+          "pTime": "1765264379448",
+          "businessPTime": "1765264500000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251201",
+          "pTime": "1764555435855",
+          "businessPTime": "1764555300000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX Introduces Enhanced Liquidity Program",
+          "url": "https://www.okx.com/help/okx-introduces-enhanced-liquidity-program",
+          "pTime": "1764144011724",
+          "businessPTime": "1764144000000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust the minimum trade amount of spots",
+          "url": "https://www.okx.com/help/okx-to-adjust-the-minimum-trade-amount-of-spots-20251114",
+          "pTime": "1763113421854",
+          "businessPTime": "1763113500000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251114",
+          "pTime": "1763109535227",
+          "businessPTime": "1763109600000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to activate the price protection mechanism for the RWA token index",
+          "url": "https://www.okx.com/help/okx-to-activate-the-price-protection-mechanism-for-the-rwa-token-index",
+          "pTime": "1762414081315",
+          "businessPTime": "1762414800000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251105",
+          "pTime": "1762308224666",
+          "businessPTime": "1762308600000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "Updates to Global Fee Framework",
+          "url": "https://www.okx.com/help/updates-to-global-fee-framework",
+          "pTime": "1762140435294",
+          "businessPTime": "1762138800000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX will introduce delta neutral strategy",
+          "url": "https://www.okx.com/help/okx-will-introduce-delta-neutral-strategy",
+          "pTime": "1761651466667",
+          "businessPTime": "1761638400000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust the minimum trade amount of spots",
+          "url": "https://www.okx.com/help/okx-to-adjust-the-minimum-trade-amount-of-spots-20251022",
+          "pTime": "1761113273115",
+          "businessPTime": "1761113400000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251021",
+          "pTime": "1761015306715",
+          "businessPTime": "1761015600000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spots/margins and futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spots-margins-and-futures-20251014",
+          "pTime": "1760424685799",
+          "businessPTime": "1760424600000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spot, margin, and perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spot-margin-and-perpetual-futures-20251010",
+          "pTime": "1760076960567",
+          "businessPTime": "1760077200000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust the minimum trade amount of spots",
+          "url": "https://www.okx.com/help/okx-to-adjust-the-minimum-trade-amount-of-spots-20250924",
+          "pTime": "1758696175213",
+          "businessPTime": "1758696300000"
+        },
+        {
+          "annType": "announcements-trading-updates",
+          "title": "OKX to adjust tick size of spot, margin, and perpetual futures",
+          "url": "https://www.okx.com/help/okx-to-adjust-tick-size-of-spot-margin-and-perpetual-futures-20250923",
+          "pTime": "1758613885634",
+          "businessPTime": "1758613500000"
+        }
+      ],
+      "totalPage": "20"
+    }
+  ]
+}

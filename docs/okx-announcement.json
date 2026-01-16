@@ -1,0 +1,101 @@
+{
+  "info": {
+    "_postman_id": "okx-announcement-api-v5",
+    "name": "OKX Announcement API V5",
+    "description": "OKX 公告 REST API 文档\n\n## 基础信息\n- 基础URL: https://www.okx.com\n- 所有接口返回 JSON 格式\n- 时间戳单位为毫秒\n\n## 响应格式\n```json\n{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [...]\n}\n```\n\n## 错误码\n- 0: 成功\n- 51000: 参数错误\n- 50001: 系统繁忙\n- 50004: API endpoint请求超时\n- 50011: 请求频率过高",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.okx.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Support - 公告接口",
+      "description": "公告相关接口，无需签名认证",
+      "item": [
+        {
+          "name": "获取公告列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/support/announcements?annType=announcements-new-listings&page=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "support", "announcements"],
+              "query": [
+                {
+                  "key": "annType",
+                  "value": "announcements-new-listings",
+                  "description": "公告类型 (必填)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "页码 (可选，默认1)"
+                }
+              ]
+            },
+            "description": "获取指定类型的公告列表\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n| 参数 | 类型 | 必填 | 说明 |\n|------|------|------|------|\n| annType | string | 是 | 公告类型 |\n| page | string | 否 | 页码，默认1 |\n\n## 公告类型 (annType)\n- announcements-new-listings: 新币上线\n- announcements-delistings: 下架公告\n- announcements-trading-updates: 交易更新\n- announcements-deposit-withdrawal-suspension-resumption: 充提暂停/恢复\n- announcements-p2p-trading: P2P交易\n- announcements-web3: Web3\n- announcements-earn-and-loan: 赚币借贷\n- announcements-jumpstart: Jumpstart\n- announcements-api: API\n- announcements-okb-buy-back-burn: OKB回购销毁\n- announcements-others: 其他\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| details | array | 公告详情列表 |\n| details[].annType | string | 公告类型 |\n| details[].title | string | 公告标题 |\n| details[].url | string | 公告链接 |\n| details[].pTime | string | 发布时间戳 |\n| details[].businessPTime | string | 业务发布时间戳 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v5/support/announcements?annType=announcements-new-listings",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v5", "support", "announcements"],
+                  "query": [
+                    {
+                      "key": "annType",
+                      "value": "announcements-new-listings"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [\n    {\n      \"details\": [\n        {\n          \"annType\": \"announcements-new-listings\",\n          \"title\": \"OKX to list TRUMP (OFFICIAL TRUMP) for spot trading\",\n          \"url\": \"https://www.okx.com/help/okx-to-list-trump-official-trump-for-spot-trading\",\n          \"pTime\": \"1737255602487\",\n          \"businessPTime\": \"1737255600000\"\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取公告类型列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v5/support/announcement-types",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v5", "support", "announcement-types"]
+            },
+            "description": "获取所有可用的公告类型\n\n## 访问限制\n- 频率限制: 5次/2秒\n- 权限要求: 无\n\n## 请求参数\n无\n\n## 响应字段\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| annType | string | 公告类型标识 |\n| annTypeDesc | string | 公告类型描述 |"
+          },
+          "response": [
+            {
+              "name": "成功响应",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{baseUrl}}/api/v5/support/announcement-types",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "v5", "support", "announcement-types"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"code\": \"0\",\n  \"msg\": \"\",\n  \"data\": [\n    {\n      \"annType\": \"announcements-new-listings\",\n      \"annTypeDesc\": \"New listings\"\n    },\n    {\n      \"annType\": \"announcements-delistings\",\n      \"annTypeDesc\": \"Delistings\"\n    },\n    {\n      \"annType\": \"announcements-trading-updates\",\n      \"annTypeDesc\": \"Trading updates\"\n    },\n    {\n      \"annType\": \"announcements-deposit-withdrawal-suspension-resumption\",\n      \"annTypeDesc\": \"Deposit/withdrawal suspension\"\n    },\n    {\n      \"annType\": \"announcements-p2p-trading\",\n      \"annTypeDesc\": \"P2P trading\"\n    },\n    {\n      \"annType\": \"announcements-web3\",\n      \"annTypeDesc\": \"Web3\"\n    },\n    {\n      \"annType\": \"announcements-earn-and-loan\",\n      \"annTypeDesc\": \"Earn and Loan\"\n    },\n    {\n      \"annType\": \"announcements-jumpstart\",\n      \"annTypeDesc\": \"Jumpstart\"\n    },\n    {\n      \"annType\": \"announcements-api\",\n      \"annTypeDesc\": \"API\"\n    },\n    {\n      \"annType\": \"announcements-okb-buy-back-burn\",\n      \"annTypeDesc\": \"OKB burn\"\n    },\n    {\n      \"annType\": \"announcements-others\",\n      \"annTypeDesc\": \"Others\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
